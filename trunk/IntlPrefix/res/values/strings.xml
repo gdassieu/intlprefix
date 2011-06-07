@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cat_intlCall_title">International call treatment</string>
+    <string name="cat_localCall_title">Local call treatment</string>
+    <string name="appName">Intl Prefix</string><string name="pref_key">pref_key</string><string name="pref_firstrun_key">pref_firstrun_key</string><string name="pref_currentCountryCode_key">pref_currentCountryCode</string><string name="pref_currentCountryCode_title">Current country code</string><string name="pref_currentCountryCode_summary">International dialing code of the country you are currently staying: %s</string><string name="pref_currentCountryCode_default">1</string><string name="pref_convertToLocal_key">pref_convertToLocal</string><string name="pref_convertToLocal_title">Add local prefix</string><string name="pref_convertToLocal_summary">Replace + followed by the current country code with the local call prefix</string>
+    
+    
+    <string name="pref_convertToLocal_default">false</string><string name="pref_localPrefix_key">pref_localPrefix</string><string name="pref_localPrefix_title">Local call prefix</string><string name="pref_localPrefix_summary">Prefix for local calls: %s</string><string name="pref_localPrefix_default">0</string><string name="pref_addIntlPrefix_key">pref_addIntlPrefix</string><string name="pref_addIntlPrefix_title">Add international prefix</string><string name="pref_addIntlPrefix_summary">Replace + for international calls with the international call prefix</string><string name="pref_addIntlPrefix_default">false</string><string name="pref_intlPrefix_key">pref_intlPrefix</string><string name="pref_intlPrefix_title">International call prefix</string><string name="pref_intlPrefix_summary">Prefix for international calls: %s</string>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+<string name="pref_intlPrefix_default"></string><string name="menu_about">About</string>
+<string name="text_about">IntlPrefix by Gaston DASSIEU-BLANCHET.\n\nThis app allows you to replace the + sign in your dialed numbers by a prefix of your choice.\n\nPlease kindly report any bugs to gdassieu@gmail.com.</string>
+<string name="button_ok">Ok</string>
+
+
+
+
+
+
+
+
+
+</resources>
