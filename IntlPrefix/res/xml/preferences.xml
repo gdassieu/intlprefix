@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android" android:key="pref_key">
+<EditTextPreference android:summary="@string/pref_currentCountryCode_summary" android:key="@string/pref_currentCountryCode_key" android:title="@string/pref_currentCountryCode_title" android:defaultValue="@string/pref_currentCountryCode_default"></EditTextPreference><PreferenceCategory android:title="@string/cat_localCall_title">
+<CheckBoxPreference android:key="@string/pref_convertToLocal_key" android:summary="@string/pref_convertToLocal_summary" android:title="@string/pref_convertToLocal_title" android:defaultValue="@string/pref_convertToLocal_default"></CheckBoxPreference><EditTextPreference android:key="@string/pref_localPrefix_key" android:title="@string/pref_localPrefix_title" android:summary="@string/pref_localPrefix_summary" android:defaultValue="@string/pref_localPrefix_default" android:dependency="@string/pref_convertToLocal_key"></EditTextPreference></PreferenceCategory><PreferenceCategory android:title="@string/cat_intlCall_title"><CheckBoxPreference android:key="@string/pref_addIntlPrefix_key" android:summary="@string/pref_addIntlPrefix_summary" android:title="@string/pref_addIntlPrefix_title" android:defaultValue="@string/pref_addIntlPrefix_default"></CheckBoxPreference><EditTextPreference android:summary="@string/pref_intlPrefix_summary" android:title="@string/pref_intlPrefix_title" android:key="@string/pref_intlPrefix_key" android:defaultValue="@string/pref_intlPrefix_default" android:dependency="@string/pref_addIntlPrefix_key"></EditTextPreference></PreferenceCategory>
+
+
+
+
+
+</PreferenceScreen>
