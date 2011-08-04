@@ -21,7 +21,7 @@
 
 
 <string name="pref_intlPrefix_default"></string><string name="menu_about">About</string>
-<string name="text_about">IntlPrefix by Gaston DASSIEU-BLANCHET.\n\nThis app allows you to replace the + sign in your dialed numbers by a prefix of your choice.\n\nPlease kindly report any bugs to gdassieu@gmail.com.</string>
+<string name="text_about">IntlPrefix by Gaston DASSIEU-BLANCHET.\n\nThis app allows you to automatically add an international dialing prefix to dialed phone numbers.\n\nPlease kindly report any bugs to gdassieu@gmail.com.\n\nos.Build.PRODUCT=%1$s\nos.Build.VERSION.SDK_INT=%2$d</string>
 <string name="button_ok">Ok</string>
 
 
