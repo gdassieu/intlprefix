@@ -21,11 +21,11 @@ public class CallReceiver extends BroadcastReceiver
 		String product = android.os.Build.PRODUCT;
 		int sdk_int = android.os.Build.VERSION.SDK_INT;
 		return
-			// HTC Desire
+			// HTC Desire on Android 2.2
 			(product.equals("htc_bravo") && sdk_int == 8)
-			// HTC Desire S
+			// HTC Desire S on Android 2.3.3
 			|| (product.equals("htc_saga") && sdk_int == 10)
-			// HTC Wildfire S
+			// HTC Wildfire S on Android 2.3.3
 			|| (product.equals("htc_marvel") && sdk_int == 10)
 			;
 	}
