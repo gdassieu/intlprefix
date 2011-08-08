@@ -10,6 +10,20 @@ public class CallReceiver extends BroadcastReceiver
 {
 	public static final String plusSign="+";
 
+	/***
+	 * Some HTC phones are buggy and ignore setResultData call. The workaround
+	 * is to cancel the call and create a new one. This method returns true
+	 * on phone models where this workaround is needed.
+	 * @return true if the workaround is needed on this phone, false otherwise
+	 */
+	private boolean useAlternateMethod()
+	{
+		String product = android.os.Build.PRODUCT;
+		int sdk_int = android.os.Build.VERSION.SDK_INT;
+		return (product.equals("htc_bravo") && sdk_int == 8)
+			|| (product.equals("htc_saga") && sdk_int == 10);
+	}
+
 	@Override
 	public void onReceive(Context context, Intent intent)
 	{
@@ -64,12 +78,11 @@ public class CallReceiver extends BroadcastReceiver
 		{
 			Log.d(getClass().getName(), "Corrected number: " + correctedNumber);
 
-			if(android.os.Build.PRODUCT.equals("htc_bravo")		// HTC desire
-				&& android.os.Build.VERSION.SDK_INT == 8)		// Android 2.2
+			if(useAlternateMethod())
 			{
-				// HTC desire on Android 2.2 is buggy and ignores setResultData.
-				// the workaround is to cancel this call and create a new call
-				Log.d(getClass().getName(), "HTC desire workaround activated");
+				// Cancel current call and make a new one on (buggy) phones that
+				// ignore call to setResultData
+				Log.d(getClass().getName(), "Workaround activated");
 				setResultData(null);
 				Intent callIntent = new Intent(Intent.ACTION_CALL,
 					Uri.parse("tel:" + correctedNumber));
