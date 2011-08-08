@@ -20,8 +20,14 @@ public class CallReceiver extends BroadcastReceiver
 	{
 		String product = android.os.Build.PRODUCT;
 		int sdk_int = android.os.Build.VERSION.SDK_INT;
-		return (product.equals("htc_bravo") && sdk_int == 8)
-			|| (product.equals("htc_saga") && sdk_int == 10);
+		return
+			// HTC Desire
+			(product.equals("htc_bravo") && sdk_int == 8)
+			// HTC Desire S
+			|| (product.equals("htc_saga") && sdk_int == 10)
+			// HTC Wildfire S
+			|| (product.equals("htc_marvel") && sdk_int == 10)
+			;
 	}
 
 	@Override
