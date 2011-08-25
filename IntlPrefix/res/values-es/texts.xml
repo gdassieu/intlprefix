@@ -13,6 +13,6 @@
 	<string name="pref_intlPrefix_title">Prefijo internacional</string>
 	<string name="pref_intlPrefix_summary">Prefijo para llamadas internacionales: %s</string>
 	<string name="menu_about">Acerca de</string>
-	<string name="text_about">IntlPrefix por Gaston DASSIEU-BLANCHET.\n\nEsta aplicación agrega automáticamente prefijos locales e internacionales a los números marcados.\n\nPor favor reportar bugs a gdassieu@gmail.com.\n\nos.Build.PRODUCT=%1$s\nos.Build.VERSION.SDK_INT=%2$d</string>
+	<string name="text_about">IntlPrefix por Gaston DASSIEU-BLANCHET.\n\nEsta aplicación agrega prefijos locales e internacionales a las llamadas salientes.\n\nPor favor reportar bugs a gdassieu@gmail.com.\n\nos.Build.PRODUCT=%1$s\nos.Build.VERSION.SDK_INT=%2$d</string>
 	<string name="button_ok">Aceptar</string>
 </resources>
