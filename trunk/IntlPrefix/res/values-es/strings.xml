@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cat_intlCall_title">Llamadas internacionales</string>
+    <string name="cat_localCall_title">Llamadas locales</string><string name="pref_currentCountryCode_title">Código del país actual</string><string name="pref_currentCountryCode_summary">Código telefónico del país en el que te encuentras actualmente: %s</string><string name="pref_convertToLocal_title">Agregar prefijo local</string><string name="pref_convertToLocal_summary">Reemplazar + seguido del código del país actual por el prefijo local</string><string name="pref_localPrefix_title">Prefijo local</string><string name="pref_localPrefix_summary">Prefijo para llamadas locales: %s</string><string name="pref_addIntlPrefix_title">Agregar prefijo internacional</string><string name="pref_addIntlPrefix_summary">Reemplazar + en llamadas internacionales por el prefijo internacional</string><string name="pref_intlPrefix_title">Prefijo internacional</string><string name="pref_intlPrefix_summary">Prefijo para llamadas internacionales: %s</string><string name="menu_about">Acerca de</string>
+<string name="text_about">IntlPrefix por Gaston DASSIEU-BLANCHET.\n\nEsta aplicación agrega automáticamente prefijos locales e internacionales a los números marcados.\n\nPor favor reportar bugs a gdassieu@gmail.com.\n\nos.Build.PRODUCT=%1$s\nos.Build.VERSION.SDK_INT=%2$d</string>
+<string name="button_ok">Aceptar</string>
+
+
+
+
+
+
+
+
+
+</resources>
