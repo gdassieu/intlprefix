@@ -5,11 +5,11 @@
 	<string name="pref_currentCountryCode_title">Current country code</string>
 	<string name="pref_currentCountryCode_summary">International dialing code of the country you are currently in: %s</string>
 	<string name="pref_convertToLocal_title">Add local prefix</string>
-	<string name="pref_convertToLocal_summary">Replace + followed by the current country code with the local call prefix</string>
+	<string name="pref_convertToLocal_summary">Replace \'+\' followed by the current country code with the local call prefix</string>
 	<string name="pref_localPrefix_title">Local call prefix</string>
 	<string name="pref_localPrefix_summary">Prefix for local calls: %s</string>
 	<string name="pref_addIntlPrefix_title">Add international prefix</string>
-	<string name="pref_addIntlPrefix_summary">Replace + for international calls with the international call prefix</string>
+	<string name="pref_addIntlPrefix_summary">Replace \'+\' for international calls with the international call prefix</string>
 	<string name="pref_intlPrefix_title">International call prefix</string>
 	<string name="pref_intlPrefix_summary">Prefix for international calls: %s</string>
 	<string name="menu_about">About</string>
