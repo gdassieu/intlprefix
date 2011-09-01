@@ -27,6 +27,8 @@ public class CallReceiver extends BroadcastReceiver
 			|| (product.equals("htc_saga") && sdk_int == 10)
 			// HTC Wildfire S on Android 2.3.3
 			|| (product.equals("htc_marvel") && sdk_int == 10)
+			// HTC Sensation on Android 2.3.3
+			|| (product.equals("htc_pyramid") && sdk_int == 10)
 			;
 	}
 
