@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="cat_intlCall_title">Appels internationaux</string>
-	<string name="cat_localCall_title">Appels locaux</string>
+	<string name="cat_localCall_title">Appels domestiques</string>
 	<string name="pref_currentCountryCode_title">Code du pays actuel</string>
 	<string name="pref_currentCountryCode_summary">Code d\'appel international du pays ou je me trouve actuellement: %s</string>
-	<string name="pref_convertToLocal_title">Ajouter le préfixe local</string>
-	<string name="pref_convertToLocal_summary">Remplacer \'+\' suivi du code du pays actuel par le préfixe local</string>
-	<string name="pref_localPrefix_title">Préfixe local</string>
-	<string name="pref_localPrefix_summary">Préfixe pour les appels locaux: %s</string>
+	<string name="pref_convertToLocal_title">Ajouter le préfixe domestique</string>
+	<string name="pref_convertToLocal_summary">Remplacer \'+\' suivi du code du pays actuel par le préfixe domestique</string>
+	<string name="pref_localPrefix_title">Préfixe domestique</string>
+	<string name="pref_localPrefix_summary">Préfixe pour les appels domestiques: %s</string>
 	<string name="pref_addIntlPrefix_title">Ajouter le préfixe international</string>
 	<string name="pref_addIntlPrefix_summary">Remplacer \'+\' pour les appels internationaux par le préfixe international</string>
 	<string name="pref_intlPrefix_title">Préfixe international</string>
 	<string name="pref_intlPrefix_summary">Préfixe pour les appels internationaux: %s</string>
 	<string name="menu_about">À propos de</string>
-	<string name="text_about">IntlPrefix par Gaston DASSIEU-BLANCHET.\n\nCette appli ajoute des préfixes locaux et internationaux aux appels sortants.\n\nMerci de signaler les bogges à gdassieu@gmail.com.\n\nos.Build.PRODUCT=%1$s\nos.Build.VERSION.SDK_INT=%2$d</string>
+	<string name="text_about">IntlPrefix par Gaston DASSIEU-BLANCHET.\n\nCette appli ajoute des préfixes domestiques et internationaux aux appels sortants.\n\nMerci de signaler les bogges à gdassieu@gmail.com.\n\nos.Build.PRODUCT=%1$s\nos.Build.VERSION.SDK_INT=%2$d</string>
 	<string name="button_ok">OK</string>
 </resources>
