@@ -11,7 +11,7 @@ public class CallReceiver extends BroadcastReceiver
 	public static final String plusSign="+";
 
 	/***
-	 * Some HTC phones are buggy and ignore setResultData call. The workaround
+	 * Some phones are buggy and ignore setResultData call. The workaround
 	 * is to cancel the call and create a new one. This method returns true
 	 * on phone models where this workaround is needed.
 	 * @return true if the workaround is needed on this phone, false otherwise
@@ -21,16 +21,11 @@ public class CallReceiver extends BroadcastReceiver
 		String product = android.os.Build.PRODUCT;
 		int sdk_int = android.os.Build.VERSION.SDK_INT;
 		return
-			(product.startsWith("htc_") && sdk_int >= 8);
-//			// HTC Desire on Android 2.2
-//			(product.equals("htc_bravo") && sdk_int == 8)
-//			// HTC Desire S on Android 2.3.3
-//			|| (product.equals("htc_saga") && sdk_int == 10)
-//			// HTC Wildfire S on Android 2.3.3
-//			|| (product.equals("htc_marvel") && sdk_int == 10)
-//			// HTC Sensation on Android 2.3.3
-//			|| (product.equals("htc_pyramid") && sdk_int == 10)
-//			;
+			// All HTC phones on Android > 2.2
+			(product.startsWith("htc_") && sdk_int >= 8)
+			// SHARP AQUOS 102SHII
+			|| product.equals("SBM102SH2")
+			;
 	}
 
 	@Override
