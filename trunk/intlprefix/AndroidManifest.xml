@@ -2,10 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
       package="com.boogersoft.intlprefix"
       android:versionName="1.0.9" android:versionCode="9">
-<uses-sdk android:minSdkVersion="4"/>
+<uses-sdk android:minSdkVersion="4" android:targetSdkVersion="15"/>
 <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"></uses-permission>
 <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
-    <application android:label="@string/appName" android:icon="@drawable/icon_intlprefix">
+    <application android:label="@string/appName" android:icon="@drawable/icon_intlprefix" android:allowBackup="true">
         
 
     <receiver android:name="CallReceiver"><intent-filter>
