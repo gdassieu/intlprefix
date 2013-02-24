@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceManager;
@@ -131,6 +132,19 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 		return false;
 	}
 
+	private String getVersionName()
+	{
+		try
+		{
+			return "v" + getPackageManager().getPackageInfo(
+				getPackageName(), 0).versionName;
+		}
+		catch(PackageManager.NameNotFoundException e)
+		{
+			return "v{unknown}";
+		}
+	}
+
 	@Override
 	protected Dialog onCreateDialog(int id)
 	{
@@ -139,7 +153,7 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 		{
 		case DIALOG_ABOUT:
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setMessage(getString(R.string.text_about,
+			builder.setMessage(getString(R.string.text_about, getVersionName(),
 				android.os.Build.PRODUCT, android.os.Build.VERSION.SDK_INT));
 			builder.setPositiveButton(R.string.button_ok,
 				new DialogInterface.OnClickListener()

@@ -13,6 +13,6 @@
 	<string name="pref_intlPrefix_title">国際電話ﾌﾟﾚﾌｨｯｸｽ</string>
 	<string name="pref_intlPrefix_summary">国際電話用ﾌﾟﾚﾌｨｯｸｽ: %s</string>
 	<string name="menu_about">IntlPrefixについて</string>
-	<string name="text_about">Gaston DASSIEU-BLANCHETによるIntlPrefix。\n\nこのアプリケーションは国内及び国際電話を掛ける際利用します。\n\nもし何かバグ等有りましたらgdassieu@gmail.comの方にご連絡お願い致します。\n\nos.Build.PRODUCT=%1$s\nos.Build.VERSION.SDK_INT=%2$d</string>
+	<string name="text_about">Gaston DASSIEU-BLANCHETによるIntlPrefix %1$s。\n\nこのアプリケーションは国内及び国際電話を掛ける際利用します。\n\nもし何かバグ等有りましたらgdassieu@gmail.comの方にご連絡お願い致します。\n\nos.Build.PRODUCT=%2$s\nos.Build.VERSION.SDK_INT=%3$d</string>
 	<string name="button_ok">O</string>
 </resources>
