@@ -19,6 +19,15 @@ public class Preferences
 			context.getString(keyResId), defValue);
 	}
 
+	private static void putStringPreference(Context context, int keyResId,
+		String value)
+	{
+		SharedPreferences.Editor editor = getPrefs(context).edit();
+		editor.putString(context.getString(keyResId), value);
+		editor.commit();
+
+	}
+
 	private static boolean getBooleanPreference(Context context,
 		int keyResId, int defValueResId)
 	{
@@ -61,5 +70,33 @@ public class Preferences
 		return getStringPreference(context,
 			R.string.pref_intlPrefix_key,
 			R.string.pref_intlPrefix_default);
+	}
+
+	public static String getlastNetworkCountryIso(Context context)
+	{
+		return getStringPreference(context,
+			R.string.pref_lastNetworkCountryIso_key,
+			R.string.pref_lastNetworkCountryIso_default);
+	}
+
+	public static void setlastNetworkCountryIso(Context context, String value)
+	{
+		putStringPreference(context,
+			R.string.pref_lastNetworkCountryIso_key,
+			value);
+	}
+
+	public static String getlastNetworkOperatorName(Context context)
+	{
+		return getStringPreference(context,
+			R.string.pref_lastNetworkOperatorName_key,
+			R.string.pref_lastNetworkOperatorName_default);
+	}
+
+	public static void setlastNetworkOperatorName(Context context, String value)
+	{
+		putStringPreference(context,
+			R.string.pref_lastNetworkOperatorName_key,
+			value);
 	}
 }

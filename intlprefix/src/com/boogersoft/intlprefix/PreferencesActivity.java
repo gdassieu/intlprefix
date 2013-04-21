@@ -58,8 +58,13 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 				getString(R.string.pref_intlPrefix_key), "00");
 		Log.d(getClass().getName(), "currentCountryCode=" + currentCountryCode);
 		Log.d(getClass().getName(), "convertToLocal=" + convertToLocal);
-		Log.d(getClass().getName(), "addIntlPrefix=" + addIntlPrefix);    	
-		Log.d(getClass().getName(), "intlPrefix=" + intlPrefix);    	
+		Log.d(getClass().getName(), "addIntlPrefix=" + addIntlPrefix);
+		Log.d(getClass().getName(), "intlPrefix=" + intlPrefix);
+
+		Log.d(getClass().getName(), "starting service");
+
+		// TODO: only start the service if configured to do so
+		AutoConfigService.start(this);
 	}
 
 	@Override

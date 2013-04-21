@@ -12,4 +12,8 @@
 	<string name="pref_addIntlPrefix_default">false</string>
 	<string name="pref_intlPrefix_key">pref_intlPrefix</string>
 	<string name="pref_intlPrefix_default"></string>
+	<string name="pref_lastNetworkCountryIso_key">pref_lastNetworkCountryIso</string>
+	<string name="pref_lastNetworkCountryIso_default"></string>
+	<string name="pref_lastNetworkOperatorName_key">pref_lastNetworkOperatorName</string>
+	<string name="pref_lastNetworkOperatorName_default"></string>
 </resources>
