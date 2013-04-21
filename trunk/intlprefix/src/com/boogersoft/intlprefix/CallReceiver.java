@@ -57,7 +57,14 @@ public class CallReceiver extends BroadcastReceiver
 
 		String correctedNumber = null;
 
-		if(dialedNumber.startsWith(plusSign + currentCountryCode))
+		if(dialedNumber == null)
+		{
+			// received some crash reports due to null dialedNumber (not sure
+			// whether this is normal operation or a whether a 3rd party app is
+			// tampering with the broadcast) so let's be defensive
+			Log.d(getClass().getName(), "Number is null");
+		}
+		else if(dialedNumber.startsWith(plusSign + currentCountryCode))
 		{
 			if(convertToLocal)
 			{
