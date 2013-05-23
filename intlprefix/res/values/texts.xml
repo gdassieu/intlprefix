@@ -12,7 +12,16 @@
 	<string name="pref_addIntlPrefix_summary">Replace \'+\' for international calls with the international call prefix</string>
 	<string name="pref_intlPrefix_title">International call prefix</string>
 	<string name="pref_intlPrefix_summary">Prefix for international calls: %s</string>
+	<string name="cat_notifications_title">Notifications</string>
+	<string name="pref_notifyOnNetworkCountryChange_title">Country change</string>
+	<string name="pref_notifyOnNetworkCountryChange_summary">Notify me when network country changes</string>
+	<string name="pref_notifyOnNetworkOperatorChange_title">Operator change</string>
+	<string name="pref_notifyOnNetworkOperatorChange_summary">Notify me when network operator changes</string>
 	<string name="menu_about">About</string>
 	<string name="text_about">IntlPrefix %1$s by Gaston DASSIEU-BLANCHET.\n\nThis app adds international and domestic prefixes to outgoing phone calls.\n\nKindly report any bugs to gdassieu@gmail.com.\n\nos.Build.PRODUCT=%2$s\nos.Build.VERSION.SDK_INT=%3$d</string>
 	<string name="button_ok">OK</string>
+	<string name="text_newNetworkCountryAndOperator">New country and operator: %1$s/%2$s</string>
+	<string name="text_newNetworkCountry">New country: %1$s</string>
+	<string name="text_newNetworkOperator">New operator: %1$s</string>
+	<string name="text_tapToAdjustSettings">Tap to adjust IntlPrefix settings</string>
 </resources>

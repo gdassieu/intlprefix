@@ -14,10 +14,19 @@ import android.util.Log;
 
 public class AutoConfigService extends Service
 {
-	public static void start(Context context)
+	public static void startOrStop(Context context)
 	{
-		context.startService(
-			new Intent(context, AutoConfigService.class));
+		Intent intent = new Intent(context, AutoConfigService.class);
+		// start the service only if needed
+		if(Preferences.getNotifyOnNetworkCountryChange(context)
+			|| Preferences.getNotifyOnNetworkOperatorChange(context))
+		{
+			context.startService(intent);
+		}
+		else
+		{
+			context.stopService(intent);
+		}
 	}
 
 	private PhoneStateListener listener;
@@ -53,6 +62,14 @@ public class AutoConfigService extends Service
 		super.onStartCommand(intent, flags, startId);
 		Log.d(getClass().getName(), "onStartCommand");
 		//sendDebugNotification("AutoConfig started");
+
+//		Uncomment to test notifications
+//		sendNotification(1, getString(
+//			R.string.text_newNetworkCountryAndOperator, "JP", "Softbank"));
+//		sendNotification(2, getString(
+//			R.string.text_newNetworkCountry, "JP"));
+//		sendNotification(3, getString(
+//			R.string.text_newNetworkOperator, "SoftBank"));
 
 		// instruct the system to recreate the service if it gets killed
 		return START_STICKY;
@@ -98,10 +115,13 @@ public class AutoConfigService extends Service
 		//sendDebugNotification("SvcStCghd: "
 		//	+ newNetworkCountryIso + "/" + newNetworkOperatorName);
 
+		boolean networkCountryChanged = false;
+		boolean networkOperatorChanged = false;
+
 		if(newNetworkCountryIso.length() > 0
 			&& !newNetworkCountryIso.equals(lastNetworkCountryIso))
 		{
-			sendNotification(1, "New country: " + newNetworkCountryIso);
+			networkCountryChanged = true;
 			Preferences.setlastNetworkCountryIso(
 				this, newNetworkCountryIso);
 		}
@@ -109,9 +129,31 @@ public class AutoConfigService extends Service
 		if(newNetworkOperatorName.length() > 0
 			&& !newNetworkOperatorName.equals(lastNetworkOperatorName))
 		{
-			sendNotification(2, "New operator: " + newNetworkOperatorName);
+			networkOperatorChanged = true;
 			Preferences.setlastNetworkOperatorName(
 				this, newNetworkOperatorName);
+		}
+
+		if(networkCountryChanged
+			&& networkOperatorChanged
+			&& Preferences.getNotifyOnNetworkCountryChange(this)
+			&& Preferences.getNotifyOnNetworkOperatorChange(this))
+		{
+			sendNotification(1, getString(
+				R.string.text_newNetworkCountryAndOperator,
+				newNetworkCountryIso + "/" + newNetworkOperatorName));
+		}
+		else if(networkCountryChanged
+			&& Preferences.getNotifyOnNetworkCountryChange(this))
+		{
+			sendNotification(2, getString(
+				R.string.text_newNetworkCountry, newNetworkCountryIso));
+		}
+		else if(networkOperatorChanged
+			&& Preferences.getNotifyOnNetworkOperatorChange(this))
+		{
+			sendNotification(3, getString(
+				R.string.text_newNetworkOperator, newNetworkOperatorName));
 		}
 	}
 
@@ -128,7 +170,7 @@ public class AutoConfigService extends Service
 			new NotificationCompat.Builder(this)
 				.setSmallIcon(R.drawable.icon_intlprefix)
 				.setContentTitle(title)
-				.setContentText("Tap to adjust IntlPrefix settings")
+				.setContentText(getString(R.string.text_tapToAdjustSettings))
 				.setAutoCancel(true);
 		Intent resultIntent = new Intent(this, PreferencesActivity.class);
 		builder.setContentIntent(PendingIntent.getActivity(

@@ -16,4 +16,8 @@
 	<string name="pref_lastNetworkCountryIso_default"></string>
 	<string name="pref_lastNetworkOperatorName_key">pref_lastNetworkOperatorName</string>
 	<string name="pref_lastNetworkOperatorName_default"></string>
+	<string name="pref_notifyOnNetworkCountryChange_key">pref_notifyOnNetworkCountryChange</string>
+	<string name="pref_notifyOnNetworkCountryChange_default">true</string>
+	<string name="pref_notifyOnNetworkOperatorChange_key">pref_notifyOnNetworkOperatorChange</string>
+	<string name="pref_notifyOnNetworkOperatorChange_default">false</string>
 </resources>

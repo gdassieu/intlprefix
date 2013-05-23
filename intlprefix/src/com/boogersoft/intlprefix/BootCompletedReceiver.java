@@ -14,8 +14,10 @@ public class BootCompletedReceiver extends BroadcastReceiver
 		{
 			Log.d(BootCompletedReceiver.class.getName(), "starting service");
 
-			// TODO: only start the service if configured to do so
-			AutoConfigService.start(context);
+			// android does not automatically start services when the app is
+			// installed, so we must start it from the PreferencesActivity and
+			// from the BootCompletedReceiver 
+			AutoConfigService.startOrStop(context);
 		}
 	}
 }

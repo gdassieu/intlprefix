@@ -63,8 +63,10 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 
 		Log.d(getClass().getName(), "starting service");
 
-		// TODO: only start the service if configured to do so
-		AutoConfigService.start(this);
+		// android does not automatically start services when the app is
+		// installed, so we must start it from the PreferencesActivity and
+		// from the BootCompletedReceiver
+		AutoConfigService.startOrStop(this);
 	}
 
 	@Override
@@ -80,6 +82,14 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 			|| key.equals(getString(R.string.pref_addIntlPrefix_key)))
 		{
 			updateEnabled();
+		}
+		else if(key.equals(getString(
+				R.string.pref_notifyOnNetworkCountryChange_key))
+			|| key.equals(getString(
+				R.string.pref_notifyOnNetworkOperatorChange_key)))
+		{
+			// start the service if needed
+			AutoConfigService.startOrStop(this);
 		}
 	}
 
