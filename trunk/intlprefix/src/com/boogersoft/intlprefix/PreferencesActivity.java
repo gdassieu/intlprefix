@@ -8,8 +8,6 @@ import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.Preference;
-import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -28,7 +26,6 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 		getPreferenceScreen().getSharedPreferences()
 			.registerOnSharedPreferenceChangeListener(this);
 		updateSummaries();
-		updateEnabled();
 	}
 
 	@Override
@@ -36,32 +33,11 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 	{
 		super.onResume();
 
-		SharedPreferences prefs =
-			PreferenceManager.getDefaultSharedPreferences(this);
-
-		if(prefs.getBoolean(getString(R.string.pref_firstrun_key), false)
-			== false)
+		if(Preferences.getFirstRun(this) == false)
 		{
 			showDialog(DIALOG_ABOUT);
-			SharedPreferences.Editor editor = prefs.edit();
-			editor.putBoolean(getString(R.string.pref_firstrun_key), true);
-			editor.commit();
+			Preferences.setFirstRun(this, true);
 		}
-
-		String currentCountryCode = prefs.getString(
-				getString(R.string.pref_currentCountryCode_key), "");
-		boolean convertToLocal = prefs.getBoolean(
-				getString(R.string.pref_convertToLocal_key), false);
-		boolean addIntlPrefix = prefs.getBoolean(
-				getString(R.string.pref_addIntlPrefix_key), false);
-		String intlPrefix = prefs.getString(
-				getString(R.string.pref_intlPrefix_key), "00");
-		Log.d(getClass().getName(), "currentCountryCode=" + currentCountryCode);
-		Log.d(getClass().getName(), "convertToLocal=" + convertToLocal);
-		Log.d(getClass().getName(), "addIntlPrefix=" + addIntlPrefix);
-		Log.d(getClass().getName(), "intlPrefix=" + intlPrefix);
-
-		Log.d(getClass().getName(), "starting service");
 
 		// android does not automatically start services when the app is
 		// installed, so we must start it from the PreferencesActivity and
@@ -77,11 +53,6 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 			|| key.equals(getString(R.string.pref_intlPrefix_key)))
 		{
 			updateSummaries();
-		}
-		else if(key.equals(getString(R.string.pref_convertToLocal_key))
-			|| key.equals(getString(R.string.pref_addIntlPrefix_key)))
-		{
-			updateEnabled();
 		}
 		else if(key.equals(getString(
 				R.string.pref_notifyOnNetworkCountryChange_key))
@@ -112,12 +83,6 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 			R.string.pref_intlPrefix_key,
 			R.string.pref_intlPrefix_summary,
 			stringOrNone(Preferences.getIntlPrefix(this)));
-	}
-
-	private void updateEnabled()
-	{
-		//Preferences.getConvertToLocal(this)
-		//getPreferenceScreen().get
 	}
 
 	private void updateSummary(int keyResId, int summaryResId,

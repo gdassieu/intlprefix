@@ -37,6 +37,26 @@ public class Preferences
 			context.getString(keyResId), defValue);
 	}
 
+	private static void putBooleanPreference(Context context, int keyResId,
+		boolean value)
+	{
+		SharedPreferences.Editor editor = getPrefs(context).edit();
+		editor.putBoolean(context.getString(keyResId), value);
+		editor.commit();
+	}
+
+	public static boolean getFirstRun(Context context)
+	{
+		return getBooleanPreference(context,
+			R.string.pref_firstrun_key,
+			R.string.pref_firstrun_default);
+	}
+
+	public static void setFirstRun(Context context, boolean value)
+	{
+		putBooleanPreference(context, R.string.pref_firstrun_key, value);
+	}
+
 	public static String getCurrentCountryCode(Context context)
 	{
 		return getStringPreference(context,
