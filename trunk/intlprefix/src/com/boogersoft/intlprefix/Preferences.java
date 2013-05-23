@@ -99,4 +99,18 @@ public class Preferences
 			R.string.pref_lastNetworkOperatorName_key,
 			value);
 	}
+
+	public static boolean getNotifyOnNetworkCountryChange(Context context)
+	{
+		return getBooleanPreference(context,
+			R.string.pref_notifyOnNetworkCountryChange_key,
+			R.string.pref_notifyOnNetworkCountryChange_default);
+	}
+
+	public static boolean getNotifyOnNetworkOperatorChange(Context context)
+	{
+		return getBooleanPreference(context,
+			R.string.pref_notifyOnNetworkOperatorChange_key,
+			R.string.pref_notifyOnNetworkOperatorChange_default);
+	}
 }
