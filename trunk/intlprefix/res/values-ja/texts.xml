@@ -13,15 +13,15 @@
 	<string name="pref_intlPrefix_title">国際電話ﾌﾟﾚﾌｨｯｸｽ</string>
 	<string name="pref_intlPrefix_summary">国際電話用ﾌﾟﾚﾌｨｯｸｽ: %s</string>
 	<string name="cat_notifications_title">通知</string>
-	<string name="pref_notifyOnNetworkCountryChange_title">国変更</string>
-	<string name="pref_notifyOnNetworkCountryChange_summary">国が変わる時に通知する</string>
-	<string name="pref_notifyOnNetworkOperatorChange_title">通信事業者変更</string>
+	<string name="pref_notifyOnNetworkCountryChange_title">対象国の変更</string>
+	<string name="pref_notifyOnNetworkCountryChange_summary">対象国が変わる時に通知する</string>
+	<string name="pref_notifyOnNetworkOperatorChange_title">通信事業者の変更</string>
 	<string name="pref_notifyOnNetworkOperatorChange_summary">通信事業者が変わる時に通知する</string>
 	<string name="menu_about">IntlPrefixについて</string>
 	<string name="text_about">Gaston DASSIEU-BLANCHETによるIntlPrefix %1$s。\n\nこのアプリケーションは国内及び国際電話を掛ける際利用します。\n\nもし何かバグ等有りましたらgdassieu@gmail.comの方にご連絡お願い致します。\n\nos.Build.PRODUCT=%2$s\nos.Build.VERSION.SDK_INT=%3$d</string>
 	<string name="button_ok">OK</string>
-	<string name="text_newNetworkCountryAndOperator">国と通信事業者変更: %1$s/%2$s</string>
-	<string name="text_newNetworkCountry">国変更: %1$s</string>
-	<string name="text_newNetworkOperator">通信事業者変更: %1$s</string>
-	<string name="text_tapToAdjustSettings">こちらをタップするとIntlPrefixを設定出来ます</string>
+	<string name="text_newNetworkCountryAndOperator">国と事業者の同時変更: %1$s/%2$s</string>
+	<string name="text_newNetworkCountry">対象国の変更: %1$s</string>
+	<string name="text_newNetworkOperator">通信事業者の変更: %1$s</string>
+	<string name="text_tapToAdjustSettings">タップするとIntlPrefixを設定出来ます</string>
 </resources>
