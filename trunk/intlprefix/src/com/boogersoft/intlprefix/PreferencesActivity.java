@@ -42,7 +42,7 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 		// android does not automatically start services when the app is
 		// installed, so we must start it from the PreferencesActivity and
 		// from the BootCompletedReceiver
-		AutoConfigService.startOrStop(this);
+		PhoneStateListenerService.startOrStop(this);
 	}
 
 	@Override
@@ -60,7 +60,7 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 				R.string.pref_notifyOnNetworkOperatorChange_key)))
 		{
 			// start the service if needed
-			AutoConfigService.startOrStop(this);
+			PhoneStateListenerService.startOrStop(this);
 		}
 	}
 

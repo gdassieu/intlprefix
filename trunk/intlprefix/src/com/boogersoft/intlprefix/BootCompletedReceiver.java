@@ -17,7 +17,7 @@ public class BootCompletedReceiver extends BroadcastReceiver
 			// android does not automatically start services when the app is
 			// installed, so we must start it from the PreferencesActivity and
 			// from the BootCompletedReceiver 
-			AutoConfigService.startOrStop(context);
+			PhoneStateListenerService.startOrStop(context);
 		}
 	}
 }
