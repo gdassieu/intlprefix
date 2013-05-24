@@ -166,9 +166,13 @@ public class PhoneStateListenerService extends Service
 
 	private void sendNotification(int id, String title)
 	{
+		int icon =
+			android.os.Build.VERSION.SDK_INT >= 11?
+				R.drawable.icon_notification_11:
+				R.drawable.icon_notification_9;
 		NotificationCompat.Builder builder =
 			new NotificationCompat.Builder(this)
-				.setSmallIcon(R.drawable.icon_intlprefix)
+				.setSmallIcon(icon)
 				.setContentTitle(title)
 				.setContentText(getString(R.string.text_tapToAdjustSettings))
 				.setAutoCancel(true);
