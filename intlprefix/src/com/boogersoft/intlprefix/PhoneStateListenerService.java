@@ -12,11 +12,11 @@ import android.telephony.ServiceState;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
-public class AutoConfigService extends Service
+public class PhoneStateListenerService extends Service
 {
 	public static void startOrStop(Context context)
 	{
-		Intent intent = new Intent(context, AutoConfigService.class);
+		Intent intent = new Intent(context, PhoneStateListenerService.class);
 		// start the service only if needed
 		if(Preferences.getNotifyOnNetworkCountryChange(context)
 			|| Preferences.getNotifyOnNetworkOperatorChange(context))
