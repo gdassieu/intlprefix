@@ -118,6 +118,12 @@ public class PhoneStateListenerService extends Service
 		boolean networkCountryChanged = false;
 		boolean networkOperatorChanged = false;
 
+		Log.d(getClass().getName(), "lastNetworkCountryIso=" + lastNetworkCountryIso);
+		Log.d(getClass().getName(), "newNetworkCountryIso=" + newNetworkCountryIso);
+		Log.d(getClass().getName(), "lastNetworkOperatorName=" + lastNetworkOperatorName);
+		Log.d(getClass().getName(), "newNetworkOperatorName=" + newNetworkOperatorName);
+
+
 		if(newNetworkCountryIso.length() > 0
 			&& !newNetworkCountryIso.equals(lastNetworkCountryIso))
 		{
@@ -141,7 +147,7 @@ public class PhoneStateListenerService extends Service
 		{
 			sendNotification(1, getString(
 				R.string.text_newNetworkCountryAndOperator,
-				newNetworkCountryIso + "/" + newNetworkOperatorName));
+				newNetworkCountryIso, newNetworkOperatorName));
 		}
 		else if(networkCountryChanged
 			&& Preferences.getNotifyOnNetworkCountryChange(this))
