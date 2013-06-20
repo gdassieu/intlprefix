@@ -3,6 +3,7 @@ package com.boogersoft.intlprefix;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 public class Preferences
 {
@@ -101,6 +102,8 @@ public class Preferences
 
 	public static void setlastNetworkCountryIso(Context context, String value)
 	{
+		Log.d(Preferences.class.getName(),
+			"setLastNetworkCountryIso(" + value + ")");
 		putStringPreference(context,
 			R.string.pref_lastNetworkCountryIso_key,
 			value);
@@ -115,6 +118,8 @@ public class Preferences
 
 	public static void setlastNetworkOperatorName(Context context, String value)
 	{
+		Log.d(Preferences.class.getName(),
+			"setLastNetworkOperatorName(" + value + ")");
 		putStringPreference(context,
 			R.string.pref_lastNetworkOperatorName_key,
 			value);
