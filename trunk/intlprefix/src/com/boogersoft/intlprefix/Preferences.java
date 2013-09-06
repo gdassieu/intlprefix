@@ -138,4 +138,11 @@ public class Preferences
 			R.string.pref_notifyOnNetworkOperatorChange_key,
 			R.string.pref_notifyOnNetworkOperatorChange_default);
 	}
+
+	public static boolean getToastOnDialedNumberChange(Context context)
+	{
+		return getBooleanPreference(context,
+			R.string.pref_toastOnDialedNumberChange_key,
+			R.string.pref_toastOnDialedNumberChange_default);
+	}
 }

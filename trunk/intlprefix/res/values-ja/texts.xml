@@ -17,6 +17,8 @@
 	<string name="pref_notifyOnNetworkCountryChange_summary">対象国が変わる時に通知する</string>
 	<string name="pref_notifyOnNetworkOperatorChange_title">通信事業者の変更</string>
 	<string name="pref_notifyOnNetworkOperatorChange_summary">通信事業者が変わる時に通知する</string>
+	<string name="pref_toastOnDialedNumberChange_title">かけた番号の変更</string>
+	<string name="pref_toastOnDialedNumberChange_summary">かけた番号が変更された時にポップアップを見せる</string>
 	<string name="menu_about">IntlPrefixについて</string>
 	<string name="text_about">Gaston DASSIEU-BLANCHETによるIntlPrefix %1$s。\n\nこのアプリケーションは国内及び国際電話を掛ける際利用します。\n\nもし何かバグ等有りましたらgdassieu@gmail.comの方にご連絡お願い致します。\n\nos.Build.PRODUCT=%2$s\nos.Build.VERSION.SDK_INT=%3$d</string>
 	<string name="button_ok">OK</string>
@@ -24,4 +26,5 @@
 	<string name="text_newNetworkCountry">対象国の変更: %1$s</string>
 	<string name="text_newNetworkOperator">通信事業者の変更: %1$s</string>
 	<string name="text_tapToAdjustSettings">タップするとIntlPrefixを設定出来ます</string>
+	<string name="text_dialedNumberChanged">%1$sが%2$sに変更されました</string>
 </resources>

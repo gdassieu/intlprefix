@@ -17,6 +17,8 @@
 	<string name="pref_notifyOnNetworkCountryChange_summary">Me notifier lorsque le pays du réseau change</string>
 	<string name="pref_notifyOnNetworkOperatorChange_title">Changement d\'opérateur</string>
 	<string name="pref_notifyOnNetworkOperatorChange_summary">Me notifier lorsque l\'opérateur du réseau change</string>
+	<string name="pref_toastOnDialedNumberChange_title">Changement du numéro composé</string>
+	<string name="pref_toastOnDialedNumberChange_summary">Afficher un popup lorsque le numéro composé est modifié</string>
 	<string name="menu_about">À propos de</string>
 	<string name="text_about">IntlPrefix %1$s par Gaston DASSIEU-BLANCHET.\n\nCette appli ajoute des préfixes domestiques et internationaux aux appels sortants.\n\nMerci de signaler les bogges à gdassieu@gmail.com.\n\nos.Build.PRODUCT=%2$s\nos.Build.VERSION.SDK_INT=%3$d</string>
 	<string name="button_ok">OK</string>
@@ -24,4 +26,5 @@
 	<string name="text_newNetworkCountry">Nouveau pays: %1$s</string>
 	<string name="text_newNetworkOperator">Nouvel opérateur: %1$s</string>
 	<string name="text_tapToAdjustSettings">Tapez ici pour configurer IntlPrefix</string>
+	<string name="text_dialedNumberChanged">%1$s changé à %2$s</string>
 </resources>
