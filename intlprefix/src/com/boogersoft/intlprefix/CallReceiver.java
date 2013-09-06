@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
+import android.widget.Toast;
 
 public class CallReceiver extends BroadcastReceiver
 {
@@ -105,6 +106,11 @@ public class CallReceiver extends BroadcastReceiver
 				// All other models: just setResultData to the new phone number
 				setResultData(correctedNumber);
 			}
+
+			Toast.makeText(context,
+				context.getString(R.string.text_dialedNumberChanged,
+					dialedNumber, correctedNumber),
+				Toast.LENGTH_SHORT).show();
 		}
 		else
 		{

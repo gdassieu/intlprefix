@@ -21,4 +21,6 @@
 	<string name="pref_notifyOnNetworkCountryChange_default">true</string>
 	<string name="pref_notifyOnNetworkOperatorChange_key">pref_notifyOnNetworkOperatorChange</string>
 	<string name="pref_notifyOnNetworkOperatorChange_default">false</string>
+	<string name="pref_toastOnDialedNumberChange_key">pref_notifyOnDialedNumberChange</string>
+	<string name="pref_toastOnDialedNumberChange_default">true</string>
 </resources>
