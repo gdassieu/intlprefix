@@ -22,7 +22,13 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
+
+		// initialize preferences that have dynamic default values before
+		// loading the preferences screen
+		Preferences.initializeDynamicDefaultValues(this);
+
 		addPreferencesFromResource(R.xml.preferences);
+
 		getPreferenceScreen().getSharedPreferences()
 			.registerOnSharedPreferenceChangeListener(this);
 		updateSummaries();
