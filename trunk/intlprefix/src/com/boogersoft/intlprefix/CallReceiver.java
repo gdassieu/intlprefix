@@ -25,7 +25,10 @@ public class CallReceiver extends BroadcastReceiver
 //		Log.d(getClass().getName(), "addIntlPrefix=" + addIntlPrefix);    	
 //		Log.d(getClass().getName(), "intlPrefix=" + intlPrefix);    	
 
-		String dialedNumber = intent.getStringExtra(Intent.EXTRA_PHONE_NUMBER);
+		String dialedNumber = getResultData();
+		if(dialedNumber == null)
+			dialedNumber = intent.getStringExtra(Intent.EXTRA_PHONE_NUMBER);
+
 		Log.d(getClass().getName(), "Dialed number: " + dialedNumber);
 
 		String correctedNumber = null;
