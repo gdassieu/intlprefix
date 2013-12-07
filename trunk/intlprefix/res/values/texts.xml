@@ -19,6 +19,9 @@
 	<string name="pref_notifyOnNetworkOperatorChange_summary">Notify me when the network operator changes</string>
 	<string name="pref_toastOnDialedNumberChange_title">Dialed number change</string>
 	<string name="pref_toastOnDialedNumberChange_summary">Display a popup when the dialed number is changed</string>
+	<string name="cat_misc_title">Miscellaneous</string>
+	<string name="pref_alternateConversionMethod_title">Alternate conversion method</string>
+	<string name="pref_alternateConversionMethod_summary">Use this on (buggy) phones where the standard conversion method does not work</string>
 	<string name="menu_about">About</string>
 	<string name="text_about">IntlPrefix %1$s by Gaston DASSIEU-BLANCHET.\n\nThis app adds international and domestic prefixes to outgoing phone calls.\n\nKindly report any bugs to gdassieu@gmail.com.\n\nos.Build.PRODUCT=%2$s\nos.Build.VERSION.SDK_INT=%3$d</string>
 	<string name="button_ok">OK</string>

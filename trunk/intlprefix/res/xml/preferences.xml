@@ -8,6 +8,9 @@
     <CheckBoxPreference android:defaultValue="@string/pref_notifyOnNetworkOperatorChange_default" android:key="@string/pref_notifyOnNetworkOperatorChange_key" android:title="@string/pref_notifyOnNetworkOperatorChange_title" android:summary="@string/pref_notifyOnNetworkOperatorChange_summary"/>
     <CheckBoxPreference android:defaultValue="@string/pref_toastOnDialedNumberChange_default" android:key="@string/pref_toastOnDialedNumberChange_key" android:title="@string/pref_toastOnDialedNumberChange_title" android:summary="@string/pref_toastOnDialedNumberChange_summary"/>
 </PreferenceCategory>
+<PreferenceCategory android:title="@string/cat_misc_title">
+    <CheckBoxPreference android:key="@string/pref_alternateConversionMethod_key" android:title="@string/pref_alternateConversionMethod_title" android:summary="@string/pref_alternateConversionMethod_summary"/>
+</PreferenceCategory>
 
 
 

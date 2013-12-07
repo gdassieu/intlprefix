@@ -26,7 +26,13 @@ public class Preferences
 		SharedPreferences.Editor editor = getPrefs(context).edit();
 		editor.putString(context.getString(keyResId), value);
 		editor.commit();
+	}
 
+	private static boolean getBooleanPreference(Context context,
+		int keyResId, boolean defValue)
+	{
+		return getPrefs(context).getBoolean(
+				context.getString(keyResId), defValue);
 	}
 
 	private static boolean getBooleanPreference(Context context,
@@ -34,8 +40,7 @@ public class Preferences
 	{
 		boolean defValue =
 			Boolean.parseBoolean(context.getString(defValueResId));
-		return getPrefs(context).getBoolean(
-			context.getString(keyResId), defValue);
+		return getBooleanPreference(context, keyResId, defValue);
 	}
 
 	private static void putBooleanPreference(Context context, int keyResId,
@@ -144,5 +149,34 @@ public class Preferences
 		return getBooleanPreference(context,
 			R.string.pref_toastOnDialedNumberChange_key,
 			R.string.pref_toastOnDialedNumberChange_default);
+	}
+
+	public static void setAlternateConversionMethod(
+		Context context, boolean value)
+	{
+		putBooleanPreference(context,
+			R.string.pref_alternateConversionMethod_key,
+			value);
+	}
+
+	public static boolean getAlternateConversionMethod(Context context)
+	{
+		String product = android.os.Build.PRODUCT;
+		int sdk_int = android.os.Build.VERSION.SDK_INT;
+		boolean knownBuggyPhone = 
+			// Many (Most/All?) HTC phones on Android > 2.2
+			(product.startsWith("htc_") && sdk_int >= 8)
+			// SHARP AQUOS 102SHII
+			|| product.equals("SBM102SH2");
+
+		return getBooleanPreference(context,
+			R.string.pref_alternateConversionMethod_key,
+			knownBuggyPhone);
+	}
+
+	public static void initializeDynamicDefaultValues(Context context)
+	{
+		Preferences.setAlternateConversionMethod(
+			context, Preferences.getAlternateConversionMethod(context));
 	}
 }

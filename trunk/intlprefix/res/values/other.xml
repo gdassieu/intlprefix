@@ -23,4 +23,5 @@
 	<string name="pref_notifyOnNetworkOperatorChange_default">false</string>
 	<string name="pref_toastOnDialedNumberChange_key">pref_notifyOnDialedNumberChange</string>
 	<string name="pref_toastOnDialedNumberChange_default">true</string>
+	<string name="pref_alternateConversionMethod_key">pref_alternateConversionMethod</string>
 </resources>

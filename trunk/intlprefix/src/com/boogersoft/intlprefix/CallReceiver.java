@@ -11,24 +11,6 @@ public class CallReceiver extends BroadcastReceiver
 {
 	public static final String plusSign="+";
 
-	/***
-	 * Some phones are buggy and ignore setResultData call. The workaround
-	 * is to cancel the call and create a new one. This method returns true
-	 * on phone models where this workaround is needed.
-	 * @return true if the workaround is needed on this phone, false otherwise
-	 */
-	private boolean useAlternateMethod()
-	{
-		String product = android.os.Build.PRODUCT;
-		int sdk_int = android.os.Build.VERSION.SDK_INT;
-		return
-			// All HTC phones on Android > 2.2
-			(product.startsWith("htc_") && sdk_int >= 8)
-			// SHARP AQUOS 102SHII
-			|| product.equals("SBM102SH2")
-			;
-	}
-
 	@Override
 	public void onReceive(Context context, Intent intent)
 	{
@@ -90,7 +72,7 @@ public class CallReceiver extends BroadcastReceiver
 		{
 			Log.d(getClass().getName(), "Corrected number: " + correctedNumber);
 
-			if(useAlternateMethod())
+			if(Preferences.getAlternateConversionMethod(context))
 			{
 				// Cancel current call and make a new one on (buggy) phones that
 				// ignore call to setResultData
