@@ -19,21 +19,11 @@ public class CallReceiver extends BroadcastReceiver
 		String localPrefix = Preferences.getLocalPrefix(context);
 		boolean addIntlPrefix = Preferences.getAddIntlPrefix(context);
 		String intlPrefix = Preferences.getIntlPrefix(context);
-//		SharedPreferences prefs =
-//			PreferenceManager.getDefaultSharedPreferences(context);
-//		String currentCountryCode = prefs.getString(
-//				context.getString(R.string.pref_currentCountryCode_key), "");
-//		boolean convertToLocal = prefs.getBoolean(
-//				context.getString(R.string.pref_convertToLocal_key), false);
-//		boolean addIntlPrefix = prefs.getBoolean(
-//				context.getString(R.string.pref_addIntlPrefix_key), false);
-//		String intlPrefix = prefs.getString(
-//				context.getString(R.string.pref_intlPrefix_key), "00");
-		Log.d(getClass().getName(), "currentCountryCode=" + currentCountryCode);
-		Log.d(getClass().getName(), "convertToLocal=" + convertToLocal);
-		Log.d(getClass().getName(), "localPrefix=" + localPrefix);    	
-		Log.d(getClass().getName(), "addIntlPrefix=" + addIntlPrefix);    	
-		Log.d(getClass().getName(), "intlPrefix=" + intlPrefix);    	
+//		Log.d(getClass().getName(), "currentCountryCode=" + currentCountryCode);
+//		Log.d(getClass().getName(), "convertToLocal=" + convertToLocal);
+//		Log.d(getClass().getName(), "localPrefix=" + localPrefix);    	
+//		Log.d(getClass().getName(), "addIntlPrefix=" + addIntlPrefix);    	
+//		Log.d(getClass().getName(), "intlPrefix=" + intlPrefix);    	
 
 		String dialedNumber = intent.getStringExtra(Intent.EXTRA_PHONE_NUMBER);
 		Log.d(getClass().getName(), "Dialed number: " + dialedNumber);
