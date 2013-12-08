@@ -82,10 +82,13 @@ public class CallReceiver extends BroadcastReceiver
 				setResultData(correctedNumber);
 			}
 
-			Toast.makeText(context,
-				context.getString(R.string.text_dialedNumberChanged,
-					dialedNumber, correctedNumber),
-				Toast.LENGTH_SHORT).show();
+			if(Preferences.getToastOnDialedNumberChange(context))
+			{
+				Toast.makeText(context,
+					context.getString(R.string.text_dialedNumberChanged,
+						dialedNumber, correctedNumber),
+					Toast.LENGTH_SHORT).show();
+			}
 		}
 		else
 		{
