@@ -21,7 +21,7 @@
 	<string name="pref_toastOnDialedNumberChange_summary">かけた番号が変更された時にポップアップを見せる</string>
 	<string name="cat_misc_title">その他</string>
 	<string name="pref_alternateConversionMethod_title">変更の代替手段</string>
-	<string name="pref_alternateConversionMethod_summary">標準手段はダメな場合は、これを使って下さい</string>
+	<string name="pref_alternateConversionMethod_summary">標準手段がダメな場合、このボックスにチェックを入れて下さい</string>
 	<string name="menu_about">IntlPrefixについて</string>
 	<string name="text_about">Gaston DASSIEU-BLANCHETによるIntlPrefix %1$s。\n\nこのアプリケーションは国内及び国際電話を掛ける際利用します。\n\nもし何かバグ等有りましたらgdassieu@gmail.comの方にご連絡お願い致します。\n\nos.Build.PRODUCT=%2$s\nos.Build.VERSION.SDK_INT=%3$d</string>
 	<string name="button_ok">OK</string>
