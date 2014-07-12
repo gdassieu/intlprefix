@@ -217,9 +217,9 @@ public class ProfileManagerFragment extends ListFragment
 			values.put(MainContentProvider.Profile.COL_COUNTRY_CODE,
 				Preferences.getCurrentCountryCode(getActivity()));
 			values.put(MainContentProvider.Profile.COL_ADD_DOM_PREFIX,
-				Preferences.getConvertToLocal(getActivity()));
+				Preferences.getAddDomesticPrefix(getActivity()));
 			values.put(MainContentProvider.Profile.COL_DOM_PREFIX,
-				Preferences.getLocalPrefix(getActivity()));
+				Preferences.getDomesticPrefix(getActivity()));
 			values.put(MainContentProvider.Profile.COL_ADD_INTL_PREFIX,
 				Preferences.getAddIntlPrefix(getActivity()));
 			values.put(MainContentProvider.Profile.COL_INTL_PREFIX,
@@ -281,8 +281,8 @@ public class ProfileManagerFragment extends ListFragment
 
 			Preferences.setProfileName(getActivity(), profileName);
 			Preferences.setCurrentCountryCode(getActivity(), countryCode);
-			Preferences.setConvertToLocal(getActivity(), addDomPrefix != 0);
-			Preferences.setLocalPrefix(getActivity(), domPrefix);
+			Preferences.setAddDomesticPrefix(getActivity(), addDomPrefix != 0);
+			Preferences.setDomesticPrefix(getActivity(), domPrefix);
 			Preferences.setAddIntlPrefix(getActivity(), addIntlPrefix != 0);
 			Preferences.setIntlPrefix(getActivity(), intlPrefix);
 			Preferences.setProfileDirty(getActivity(), false);
