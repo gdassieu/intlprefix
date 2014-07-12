@@ -88,8 +88,8 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 	public void onSharedPreferenceChanged(SharedPreferences prefs, String key)
 	{
 		if(key.equals(getString(R.string.pref_currentCountryCode_key))
-			|| key.equals(getString(R.string.pref_convertToLocal_key))
-			|| key.equals(getString(R.string.pref_localPrefix_key))
+			|| key.equals(getString(R.string.pref_addDomesticPrefix_key))
+			|| key.equals(getString(R.string.pref_domesticPrefix_key))
 			|| key.equals(getString(R.string.pref_addIntlPrefix_key))
 			|| key.equals(getString(R.string.pref_intlPrefix_key)))
 		{
@@ -132,8 +132,8 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 			R.string.pref_profileName_key,
 			R.string.pref_profileName_summary,
 			stringOrBlank(Preferences.getCurrentCountryCode(this)),
-			Preferences.getConvertToLocal(this)?
-				stringOrBlank(Preferences.getLocalPrefix(this)):
+			Preferences.getAddDomesticPrefix(this)?
+				stringOrBlank(Preferences.getDomesticPrefix(this)):
 				getString(R.string.pref_profileName_summary_prefixDontAdd),
 			Preferences.getAddIntlPrefix(this)?
 				stringOrBlank(Preferences.getIntlPrefix(this)):
@@ -143,9 +143,9 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 			R.string.pref_currentCountryCode_summary,
 			stringOrBlank(Preferences.getCurrentCountryCode(this)));
 		updateSummary(
-			R.string.pref_localPrefix_key,
-			R.string.pref_localPrefix_summary,
-			stringOrBlank(Preferences.getLocalPrefix(this)));
+			R.string.pref_domesticPrefix_key,
+			R.string.pref_domesticPrefix_summary,
+			stringOrBlank(Preferences.getDomesticPrefix(this)));
 		updateSummary(
 			R.string.pref_intlPrefix_key,
 			R.string.pref_intlPrefix_summary,

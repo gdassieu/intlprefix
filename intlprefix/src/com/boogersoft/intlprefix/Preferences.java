@@ -98,32 +98,29 @@ public class Preferences
 			context, R.string.pref_currentCountryCode_key, value);
 	}
 
-	// TODO: rename to getAddDomesticPrefix for consistency with UI
-	public static boolean getConvertToLocal(Context context)
+	public static boolean getAddDomesticPrefix(Context context)
 	{
 		return getBooleanPreference(context,
-			R.string.pref_convertToLocal_key,
-			R.string.pref_convertToLocal_default);
+			R.string.pref_addDomesticPrefix_key,
+			R.string.pref_addDomesticPrefix_default);
 	}
 
-	// TODO: rename to setAddDomesticPrefix for consistency with UI
-	public static void setConvertToLocal(Context context, boolean value)
+	public static void setAddDomesticPrefix(Context context, boolean value)
 	{
-		putBooleanPreference(context, R.string.pref_convertToLocal_key, value);
+		putBooleanPreference(
+			context, R.string.pref_addDomesticPrefix_key, value);
 	}
 
-	// TODO: rename to getDomesticPrefix for consistency with UI
-	public static String getLocalPrefix(Context context)
+	public static String getDomesticPrefix(Context context)
 	{
 		return getStringPreference(context,
-			R.string.pref_localPrefix_key,
-			R.string.pref_localPrefix_default);
+			R.string.pref_domesticPrefix_key,
+			R.string.pref_domesticPrefix_default);
 	}
 
-	// TODO: rename to setDomesticPrefix for consistency with UI
-	public static void setLocalPrefix(Context context, String value)
+	public static void setDomesticPrefix(Context context, String value)
 	{
-		putStringPreference(context, R.string.pref_localPrefix_key, value);
+		putStringPreference(context, R.string.pref_domesticPrefix_key, value);
 	}
 
 	public static boolean getAddIntlPrefix(Context context)

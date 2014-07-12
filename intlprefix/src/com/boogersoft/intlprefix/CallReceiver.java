@@ -15,13 +15,13 @@ public class CallReceiver extends BroadcastReceiver
 	public void onReceive(Context context, Intent intent)
 	{
 		String currentCountryCode = Preferences.getCurrentCountryCode(context);
-		boolean convertToLocal = Preferences.getConvertToLocal(context);
-		String localPrefix = Preferences.getLocalPrefix(context);
+		boolean addDomesticPrefix = Preferences.getAddDomesticPrefix(context);
+		String domesticPrefix = Preferences.getDomesticPrefix(context);
 		boolean addIntlPrefix = Preferences.getAddIntlPrefix(context);
 		String intlPrefix = Preferences.getIntlPrefix(context);
 //		Log.d(getClass().getName(), "currentCountryCode=" + currentCountryCode);
-//		Log.d(getClass().getName(), "convertToLocal=" + convertToLocal);
-//		Log.d(getClass().getName(), "localPrefix=" + localPrefix);    	
+//		Log.d(getClass().getName(), "addDomesticPrefix=" + addDomesticPrefix);
+//		Log.d(getClass().getName(), "domesticPrefix=" + domesticPrefix);    	
 //		Log.d(getClass().getName(), "addIntlPrefix=" + addIntlPrefix);    	
 //		Log.d(getClass().getName(), "intlPrefix=" + intlPrefix);    	
 
@@ -42,11 +42,11 @@ public class CallReceiver extends BroadcastReceiver
 		}
 		else if(dialedNumber.startsWith(plusSign + currentCountryCode))
 		{
-			if(convertToLocal)
+			if(addDomesticPrefix)
 			{
 				Log.d(getClass().getName(), "Number starts with " + plusSign
-					+ currentCountryCode + ", converting to local");
-				correctedNumber = localPrefix + dialedNumber.substring(
+					+ currentCountryCode + ", adding domestic prefix");
+				correctedNumber = domesticPrefix + dialedNumber.substring(
 					plusSign.length() + currentCountryCode.length());
 			}
 		}
