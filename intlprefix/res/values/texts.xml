@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="cat_profile_title">Profile</string>
+	<string name="pref_profileName_title">Profile: %1$s%2$s</string>
+	<string name="pref_profileName_summary">Current country code: %1$s; Add domestic prefix: %2$s; Add international prefix: %3$s</string>
+	<string name="pref_profileName_default">Untitled</string>
 	<string name="cat_intlCall_title">International calls</string>
 	<string name="cat_localCall_title">Domestic calls</string>
 	<string name="pref_currentCountryCode_title">Current country code</string>
@@ -12,6 +16,8 @@
 	<string name="pref_addIntlPrefix_summary">Replace \'+\' for international calls with the international call prefix</string>
 	<string name="pref_intlPrefix_title">International call prefix</string>
 	<string name="pref_intlPrefix_summary">Prefix for international calls: %s</string>
+	<string name="cat_load_title">Load / Manage…</string>
+	<string name="cat_save_title">Save…</string>
 	<string name="cat_notifications_title">Notifications</string>
 	<string name="pref_notifyOnNetworkCountryChange_title">Country change</string>
 	<string name="pref_notifyOnNetworkCountryChange_summary">Notify me when the network country changes</string>
@@ -30,4 +36,14 @@
 	<string name="text_newNetworkOperator">New operator: %1$s</string>
 	<string name="text_tapToAdjustSettings">Tap to adjust IntlPrefix settings</string>
 	<string name="text_dialedNumberChanged">%1$s changed to %2$s</string>
+	<string name="label_profileName">Profile name</string>
+	<string name="cat_ProfileManager_Load_Title">Load / Manage profile</string>
+	<string name="cat_ProfileManager_Save_Title">Save profile</string>
+	<string name="text_confirmOverwriteProfile">Overwrite profile %1$s?</string>
+	<string name="text_confirmDiscardProfile">Discard profile %1$s?</string>
+	<string name="button_yes">Yes</string>
+	<string name="button_no">No</string>
+	<string name="text_profileSaved">Profile %1$s saved</string>
+	<string name="text_profileLoaded">Profile %1$s loaded</string>
+	<string name="text_profileDiscarded">Profile %1$s discarded</string>
 </resources>

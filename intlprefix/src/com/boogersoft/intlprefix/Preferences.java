@@ -51,6 +51,13 @@ public class Preferences
 		editor.commit();
 	}
 
+	private static void deletePreference(Context context, int keyResId)
+	{
+		SharedPreferences.Editor editor = getPrefs(context).edit();
+		editor.remove(context.getString(keyResId));
+		editor.commit();
+	}
+
 	public static boolean getFirstRun(Context context)
 	{
 		return getBooleanPreference(context,
@@ -63,6 +70,21 @@ public class Preferences
 		putBooleanPreference(context, R.string.pref_firstrun_key, value);
 	}
 
+	public static String getProfileName(Context context)
+	{
+		return getStringPreference(context,
+			R.string.pref_profileName_key,
+			R.string.pref_profileName_default);
+	}
+
+	public static void setProfileName(Context context, String value)
+	{
+		if(value == null)
+			deletePreference(context, R.string.pref_profileName_key);
+		else
+			putStringPreference(context, R.string.pref_profileName_key, value);
+	}
+
 	public static String getCurrentCountryCode(Context context)
 	{
 		return getStringPreference(context,
@@ -70,6 +92,13 @@ public class Preferences
 			R.string.pref_intlPrefix_default);
 	}
 
+	public static void setCurrentCountryCode(Context context, String value)
+	{
+		putStringPreference(
+			context, R.string.pref_currentCountryCode_key, value);
+	}
+
+	// TODO: rename to getAddDomesticPrefix for consistency with UI
 	public static boolean getConvertToLocal(Context context)
 	{
 		return getBooleanPreference(context,
@@ -77,11 +106,24 @@ public class Preferences
 			R.string.pref_convertToLocal_default);
 	}
 
+	// TODO: rename to setAddDomesticPrefix for consistency with UI
+	public static void setConvertToLocal(Context context, boolean value)
+	{
+		putBooleanPreference(context, R.string.pref_convertToLocal_key, value);
+	}
+
+	// TODO: rename to getDomesticPrefix for consistency with UI
 	public static String getLocalPrefix(Context context)
 	{
 		return getStringPreference(context,
 			R.string.pref_localPrefix_key,
 			R.string.pref_localPrefix_default);
+	}
+
+	// TODO: rename to setDomesticPrefix for consistency with UI
+	public static void setLocalPrefix(Context context, String value)
+	{
+		putStringPreference(context, R.string.pref_localPrefix_key, value);
 	}
 
 	public static boolean getAddIntlPrefix(Context context)
@@ -91,11 +133,21 @@ public class Preferences
 			R.string.pref_addIntlPrefix_default);
 	}
 
+	public static void setAddIntlPrefix(Context context, boolean value)
+	{
+		putBooleanPreference(context, R.string.pref_addIntlPrefix_key, value);
+	}
+
 	public static String getIntlPrefix(Context context)
 	{
 		return getStringPreference(context,
 			R.string.pref_intlPrefix_key,
 			R.string.pref_intlPrefix_default);
+	}
+
+	public static void setIntlPrefix(Context context, String value)
+	{
+		putStringPreference(context, R.string.pref_intlPrefix_key, value);
 	}
 
 	public static String getlastNetworkCountryIso(Context context)
@@ -156,6 +208,20 @@ public class Preferences
 	{
 		putBooleanPreference(context,
 			R.string.pref_alternateConversionMethod_key,
+			value);
+	}
+
+	public static boolean getProfileDirty(Context context)
+	{
+		return getBooleanPreference(context,
+			R.string.pref_profileDirty_key,
+			R.string.pref_profileDirty_default);
+	}
+
+	public static void setProfileDirty(Context context, boolean value)
+	{
+		putBooleanPreference(context,
+			R.string.pref_profileDirty_key,
 			value);
 	}
 
