@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="cat_profile_title">プロフィル</string>
+	<string name="pref_profileName_title">プロフィル: %1$s%2$s</string>
+	<string name="pref_profileName_summary">現在の国番号: %1$s\n国内電話ﾌﾟﾚﾌｨｯｸｽを追加: %2$s\n国際電話ﾌﾟﾚﾌｨｯｸｽを追加: %3$s</string>
+	<string name="pref_profileName_summary_prefixAddBlank">(空欄)</string>
+	<string name="pref_profileName_summary_prefixDontAdd">なし</string>
+	<string name="pref_profileName_default">無題</string>
 	<string name="cat_intlCall_title">国際電話</string>
 	<string name="cat_localCall_title">国内電話</string>
 	<string name="pref_currentCountryCode_title">現在の国番号</string>
@@ -12,6 +18,8 @@
 	<string name="pref_addIntlPrefix_summary">国際電話の場合、「＋」の代わりに国際電話用ﾌﾟﾚﾌｨｯｸｽを入れる</string>
 	<string name="pref_intlPrefix_title">国際電話ﾌﾟﾚﾌｨｯｸｽ</string>
 	<string name="pref_intlPrefix_summary">国際電話用ﾌﾟﾚﾌｨｯｸｽ: %s</string>
+	<string name="cat_load_title">開く / 管理…</string>
+	<string name="cat_save_title">保存…</string>
 	<string name="cat_notifications_title">通知</string>
 	<string name="pref_notifyOnNetworkCountryChange_title">対象国の変更</string>
 	<string name="pref_notifyOnNetworkCountryChange_summary">対象国が変わる時に通知する</string>
@@ -30,4 +38,14 @@
 	<string name="text_newNetworkOperator">通信事業者の変更: %1$s</string>
 	<string name="text_tapToAdjustSettings">タップするとIntlPrefixを設定出来ます</string>
 	<string name="text_dialedNumberChanged">%1$sが%2$sに変更されました</string>
+	<string name="label_profileName">プロフィル名</string>
+	<string name="cat_ProfileManager_Load_Title">プロフィルを開く、管理する</string>
+	<string name="cat_ProfileManager_Save_Title">プロフィルを保存</string>
+	<string name="text_confirmOverwriteProfile">プロフィル%1$sを上書きしますか?</string>
+	<string name="text_confirmDiscardProfile">プロフィル%1$sを削除しますか?</string>
+	<string name="button_yes">はい</string>
+	<string name="button_no">いいえ</string>
+	<string name="text_profileSaved">プロフィル%1$sを保存しました</string>
+	<string name="text_profileLoaded">プロフィル%1$sを開きました</string>
+	<string name="text_profileDiscarded">プロフィル%1$sを削除しました</string>
 </resources>
