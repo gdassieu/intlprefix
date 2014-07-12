@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="cat_intlCall_title">Llamadas internacionales</string>
+    <string name="cat_profile_title">Perfil</string>
+	<string name="pref_profileName_title">Perfil: %1$s%2$s</string>
+	<string name="pref_profileName_summary">Código de país actual: %1$s\nAgregar prefijo doméstico: %2$s\nAgregar prefijo internacional: %3$s</string>
+	<string name="pref_profileName_summary_prefixAddBlank">(vacío)</string>
+	<string name="pref_profileName_summary_prefixDontAdd">no</string>
+	<string name="pref_profileName_default">Sin título</string>
+    <string name="cat_intlCall_title">Llamadas internacionales</string>
 	<string name="cat_localCall_title">Llamadas domésticas</string>
 	<string name="pref_currentCountryCode_title">Código del país actual</string>
 	<string name="pref_currentCountryCode_summary">Código telefónico del país en el que te encuentras actualmente: %s</string>
@@ -12,6 +18,8 @@
 	<string name="pref_addIntlPrefix_summary">Reemplazar \'+\' en llamadas internacionales por el prefijo internacional</string>
 	<string name="pref_intlPrefix_title">Prefijo internacional</string>
 	<string name="pref_intlPrefix_summary">Prefijo para llamadas internacionales: %s</string>
+	<string name="cat_load_title">Abrir / Administrar…</string>
+	<string name="cat_save_title">Guardar…</string>
 	<string name="cat_notifications_title">Notificaciones</string>
 	<string name="pref_notifyOnNetworkCountryChange_title">Cambio de país</string>
 	<string name="pref_notifyOnNetworkCountryChange_summary">Notificarme cuando el país de la red cambia</string>
@@ -21,7 +29,7 @@
 	<string name="pref_toastOnDialedNumberChange_summary">Mostrar un mensaje emergente cuando el número marcado es modificado</string>
 	<string name="cat_misc_title">Misceláneos</string>
 	<string name="pref_alternateConversionMethod_title">Método de conversión alternativo</string>
-	<string name="pref_alternateConversionMethod_summary">Usa esto en móviles defectuosos si el método estándar no funciona</string>
+	<string name="pref_alternateConversionMethod_summary">Usa esto en móviles en los que el método estándar no funciona</string>
 	<string name="menu_about">Acerca de</string>
 	<string name="text_about">IntlPrefix %1$s por Gaston DASSIEU-BLANCHET.\n\nEsta aplicación agrega prefijos domésticos e internacionales a las llamadas salientes.\n\nPor favor reportar bugs a gdassieu@gmail.com.\n\nos.Build.PRODUCT=%2$s\nos.Build.VERSION.SDK_INT=%3$d</string>
 	<string name="button_ok">Aceptar</string>
@@ -30,4 +38,14 @@
 	<string name="text_newNetworkOperator">Nuevo operador: %1$s</string>
 	<string name="text_tapToAdjustSettings">Toca aquí para configurar IntlPrefix</string>
 	<string name="text_dialedNumberChanged">%1$s cambiado a %2$s</string>
+	<string name="label_profileName">Nombre del perfil</string>
+	<string name="cat_ProfileManager_Load_Title">Abrir / Administrar perfil</string>
+	<string name="cat_ProfileManager_Save_Title">Guardar perfil</string>
+	<string name="text_confirmOverwriteProfile">Sobrescribir perfil %1$s?</string>
+	<string name="text_confirmDiscardProfile">Borrar perfil %1$s?</string>
+	<string name="button_yes">Sí</string>
+	<string name="button_no">No</string>
+	<string name="text_profileSaved">Perfil %1$s guardado</string>
+	<string name="text_profileLoaded">Perfil %1$s cargado</string>
+	<string name="text_profileDiscarded">Perfil %1$s borrado</string>
 </resources>

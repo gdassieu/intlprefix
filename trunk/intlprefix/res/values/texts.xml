@@ -2,7 +2,9 @@
 <resources>
     <string name="cat_profile_title">Profile</string>
 	<string name="pref_profileName_title">Profile: %1$s%2$s</string>
-	<string name="pref_profileName_summary">Current country code: %1$s; Add domestic prefix: %2$s; Add international prefix: %3$s</string>
+	<string name="pref_profileName_summary">Current country code: %1$s\nAdd domestic prefix: %2$s\nAdd international prefix: %3$s</string>
+	<string name="pref_profileName_summary_prefixAddBlank">(blank)</string>
+	<string name="pref_profileName_summary_prefixDontAdd">no</string>
 	<string name="pref_profileName_default">Untitled</string>
 	<string name="cat_intlCall_title">International calls</string>
 	<string name="cat_localCall_title">Domestic calls</string>
@@ -27,7 +29,7 @@
 	<string name="pref_toastOnDialedNumberChange_summary">Display a popup when the dialed number is changed</string>
 	<string name="cat_misc_title">Miscellaneous</string>
 	<string name="pref_alternateConversionMethod_title">Alternate conversion method</string>
-	<string name="pref_alternateConversionMethod_summary">Use this on (buggy) phones where the standard conversion method does not work</string>
+	<string name="pref_alternateConversionMethod_summary">Use this on (buggy) phones where the standard method doesn\'t work</string>
 	<string name="menu_about">About</string>
 	<string name="text_about">IntlPrefix %1$s by Gaston DASSIEU-BLANCHET.\n\nThis app adds international and domestic prefixes to outgoing phone calls.\n\nKindly report any bugs to gdassieu@gmail.com.\n\nos.Build.PRODUCT=%2$s\nos.Build.VERSION.SDK_INT=%3$d</string>
 	<string name="button_ok">OK</string>

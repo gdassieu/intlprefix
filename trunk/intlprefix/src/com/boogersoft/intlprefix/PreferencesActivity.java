@@ -115,9 +115,10 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 		}
 	}
 
-	private String stringOrNone(String s)
+	private String stringOrBlank(String s)
 	{
-		return "".equals(s)? "(none)": s;
+		return "".equals(s)? getString(
+			R.string.pref_profileName_summary_prefixAddBlank): s;
 	}
 
 	private void updateScreen()
@@ -130,23 +131,25 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 		updateSummary(
 			R.string.pref_profileName_key,
 			R.string.pref_profileName_summary,
-			stringOrNone(Preferences.getCurrentCountryCode(this)),
+			stringOrBlank(Preferences.getCurrentCountryCode(this)),
 			Preferences.getConvertToLocal(this)?
-				stringOrNone(Preferences.getLocalPrefix(this)): "no",
+				stringOrBlank(Preferences.getLocalPrefix(this)):
+				getString(R.string.pref_profileName_summary_prefixDontAdd),
 			Preferences.getAddIntlPrefix(this)?
-				stringOrNone(Preferences.getIntlPrefix(this)): "no");
+				stringOrBlank(Preferences.getIntlPrefix(this)):
+				getString(R.string.pref_profileName_summary_prefixDontAdd));
 		updateSummary(
 			R.string.pref_currentCountryCode_key,
 			R.string.pref_currentCountryCode_summary,
-			stringOrNone(Preferences.getCurrentCountryCode(this)));
+			stringOrBlank(Preferences.getCurrentCountryCode(this)));
 		updateSummary(
 			R.string.pref_localPrefix_key,
 			R.string.pref_localPrefix_summary,
-			stringOrNone(Preferences.getLocalPrefix(this)));
+			stringOrBlank(Preferences.getLocalPrefix(this)));
 		updateSummary(
 			R.string.pref_intlPrefix_key,
 			R.string.pref_intlPrefix_summary,
-			stringOrNone(Preferences.getIntlPrefix(this)));
+			stringOrBlank(Preferences.getIntlPrefix(this)));
 
 		this.onContentChanged();
 	}
