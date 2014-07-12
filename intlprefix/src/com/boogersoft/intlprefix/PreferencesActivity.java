@@ -10,9 +10,6 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 
 public class PreferencesActivity extends android.preference.PreferenceActivity
 	implements OnSharedPreferenceChangeListener
@@ -60,6 +57,16 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 					intent.putExtra("SAVE", true);
 					startActivityForResult(intent, ACTIVITY_PROFILE_MANAGER);
 					//overridePendingTransition(0, 0);
+					return true;
+				}
+			});
+		getPreferenceScreen().findPreference(getString(R.string.pref_about_key))
+			.setOnPreferenceClickListener(new OnPreferenceClickListener()
+			{	
+				@Override
+				public boolean onPreferenceClick(Preference preference)
+				{
+					showDialog(DIALOG_ABOUT);
 					return true;
 				}
 			});
@@ -166,25 +173,6 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 		String key = getString(keyResId);
 		Preference pref = getPreferenceScreen().findPreference(key);
 		pref.setSummary(getString(summaryResId, values));
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu)
-	{
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.menu, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item)
-	{
-		if(item.getItemId() == R.id.menu_about)
-		{
-			showDialog(DIALOG_ABOUT);
-			return true;
-		}
-		return false;
 	}
 
 	private String getVersionName()
