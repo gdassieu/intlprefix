@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="appName">IntlPrefix</string>
-	<string name="pref_firstrun_key">pref_firstrun_key</string>
+	<string name="pref_firstrun_key">pref_firstrun</string>
 	<string name="pref_firstrun_default">false</string>
+	<string name="pref_profileName_key">pref_profileName</string>
+	<string name="pref_profileDirty_key">pref_profileDirty</string>
+	<string name="pref_profileDirty_default">true</string>
 	<string name="pref_currentCountryCode_key">pref_currentCountryCode</string>
 	<string name="pref_currentCountryCode_default">1</string>
 	<string name="pref_convertToLocal_key">pref_convertToLocal</string>
@@ -17,6 +20,8 @@
 	<string name="pref_lastNetworkCountryIso_default"></string>
 	<string name="pref_lastNetworkOperatorName_key">pref_lastNetworkOperatorName</string>
 	<string name="pref_lastNetworkOperatorName_default"></string>
+	<string name="cat_load_key">cat_load</string>
+	<string name="cat_save_key">cat_save</string>
 	<string name="pref_notifyOnNetworkCountryChange_key">pref_notifyOnNetworkCountryChange</string>
 	<string name="pref_notifyOnNetworkCountryChange_default">true</string>
 	<string name="pref_notifyOnNetworkOperatorChange_key">pref_notifyOnNetworkOperatorChange</string>

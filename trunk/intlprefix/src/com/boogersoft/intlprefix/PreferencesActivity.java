@@ -3,11 +3,13 @@ package com.boogersoft.intlprefix;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceClickListener;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -16,6 +18,8 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 	implements OnSharedPreferenceChangeListener
 {
 	private static final int DIALOG_ABOUT = 0;
+
+	private static final int ACTIVITY_PROFILE_MANAGER = 1;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -31,7 +35,36 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 
 		getPreferenceScreen().getSharedPreferences()
 			.registerOnSharedPreferenceChangeListener(this);
-		updateSummaries();
+		getPreferenceScreen().findPreference(getString(R.string.cat_load_key))
+			.setOnPreferenceClickListener(new OnPreferenceClickListener()
+			{
+				@Override
+				public boolean onPreferenceClick(Preference preference)
+				{
+					Intent intent = new Intent(PreferencesActivity.this,
+						ProfileManagerActivity.class);
+					intent.putExtra("SAVE", false);
+					startActivityForResult(intent, ACTIVITY_PROFILE_MANAGER);
+					//overridePendingTransition(0, 0);
+					return true;
+				}
+			});
+		getPreferenceScreen().findPreference(getString(R.string.cat_save_key))
+			.setOnPreferenceClickListener(new OnPreferenceClickListener()
+			{
+				@Override
+				public boolean onPreferenceClick(Preference preference)
+				{
+					Intent intent = new Intent(PreferencesActivity.this,
+						ProfileManagerActivity.class);
+					intent.putExtra("SAVE", true);
+					startActivityForResult(intent, ACTIVITY_PROFILE_MANAGER);
+					//overridePendingTransition(0, 0);
+					return true;
+				}
+			});
+
+		updateScreen();
 	}
 
 	@Override
@@ -55,10 +88,13 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 	public void onSharedPreferenceChanged(SharedPreferences prefs, String key)
 	{
 		if(key.equals(getString(R.string.pref_currentCountryCode_key))
+			|| key.equals(getString(R.string.pref_convertToLocal_key))
 			|| key.equals(getString(R.string.pref_localPrefix_key))
+			|| key.equals(getString(R.string.pref_addIntlPrefix_key))
 			|| key.equals(getString(R.string.pref_intlPrefix_key)))
 		{
-			updateSummaries();
+			Preferences.setProfileDirty(this, true);
+			updateScreen();
 		}
 		else if(key.equals(getString(
 				R.string.pref_notifyOnNetworkCountryChange_key))
@@ -70,13 +106,35 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 		}
 	}
 
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data)
+	{
+		if(requestCode == ACTIVITY_PROFILE_MANAGER)
+		{
+			updateScreen();
+		}
+	}
+
 	private String stringOrNone(String s)
 	{
 		return "".equals(s)? "(none)": s;
 	}
 
-	private void updateSummaries()
+	private void updateScreen()
 	{
+		updateTitle(
+			R.string.pref_profileName_key,
+			R.string.pref_profileName_title,
+			Preferences.getProfileName(this),
+			Preferences.getProfileDirty(this)? "*": "");
+		updateSummary(
+			R.string.pref_profileName_key,
+			R.string.pref_profileName_summary,
+			stringOrNone(Preferences.getCurrentCountryCode(this)),
+			Preferences.getConvertToLocal(this)?
+				stringOrNone(Preferences.getLocalPrefix(this)): "no",
+			Preferences.getAddIntlPrefix(this)?
+				stringOrNone(Preferences.getIntlPrefix(this)): "no");
 		updateSummary(
 			R.string.pref_currentCountryCode_key,
 			R.string.pref_currentCountryCode_summary,
@@ -89,14 +147,22 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 			R.string.pref_intlPrefix_key,
 			R.string.pref_intlPrefix_summary,
 			stringOrNone(Preferences.getIntlPrefix(this)));
+
+		this.onContentChanged();
 	}
 
-	private void updateSummary(int keyResId, int summaryResId,
-		Object value)
+	private void updateTitle(int keyResId, int titleResId, Object... values)
 	{
 		String key = getString(keyResId);
 		Preference pref = getPreferenceScreen().findPreference(key);
-		pref.setSummary(getString(summaryResId, value));
+		pref.setTitle(getString(titleResId, values));
+	}
+
+	private void updateSummary(int keyResId, int summaryResId, Object... values)
+	{
+		String key = getString(keyResId);
+		Preference pref = getPreferenceScreen().findPreference(key);
+		pref.setSummary(getString(summaryResId, values));
 	}
 
 	@Override

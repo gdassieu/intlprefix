@@ -26,6 +26,8 @@
     </intent-filter>
 </receiver>
 <service android:name="PhoneStateListenerService"></service>
+<activity android:name="ProfileManagerActivity" android:label="@string/appName"></activity>
+<provider android:name="MainContentProvider" android:exported="false" android:authorities="com.boogersoft.intlprefix"></provider>
 
 
 
