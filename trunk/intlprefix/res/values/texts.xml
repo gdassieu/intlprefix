@@ -30,7 +30,7 @@
 	<string name="cat_misc_title">Miscellaneous</string>
 	<string name="pref_alternateConversionMethod_title">Alternate conversion method</string>
 	<string name="pref_alternateConversionMethod_summary">Use this on (buggy) phones where the standard method doesn\'t work</string>
-	<string name="menu_about">About</string>
+	<string name="pref_about_title">About IntlPrefix…</string>
 	<string name="text_about">IntlPrefix %1$s by Gaston DASSIEU-BLANCHET.\n\nThis app adds international and domestic prefixes to outgoing phone calls.\n\nKindly report any bugs to gdassieu@gmail.com.\n\nos.Build.PRODUCT=%2$s\nos.Build.VERSION.SDK_INT=%3$d</string>
 	<string name="button_ok">OK</string>
 	<string name="text_newNetworkCountryAndOperator">New country and operator: %1$s/%2$s</string>

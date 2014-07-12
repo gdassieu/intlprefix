@@ -30,7 +30,7 @@
 	<string name="cat_misc_title">Misceláneos</string>
 	<string name="pref_alternateConversionMethod_title">Método de conversión alternativo</string>
 	<string name="pref_alternateConversionMethod_summary">Usa esto en móviles en los que el método estándar no funciona</string>
-	<string name="menu_about">Acerca de</string>
+	<string name="pref_about_title">Acerca de IntlPrefix…</string>
 	<string name="text_about">IntlPrefix %1$s por Gaston DASSIEU-BLANCHET.\n\nEsta aplicación agrega prefijos domésticos e internacionales a las llamadas salientes.\n\nPor favor reportar bugs a gdassieu@gmail.com.\n\nos.Build.PRODUCT=%2$s\nos.Build.VERSION.SDK_INT=%3$d</string>
 	<string name="button_ok">Aceptar</string>
 	<string name="text_newNetworkCountryAndOperator">Nuevo país y operador: %1$s/%2$s</string>
