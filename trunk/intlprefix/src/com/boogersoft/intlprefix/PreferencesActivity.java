@@ -197,6 +197,7 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 		case DIALOG_ABOUT:
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setMessage(getString(R.string.text_about, getVersionName(),
+				getString(R.string.pref_alternateConversionMethod_title),
 				android.os.Build.PRODUCT, android.os.Build.VERSION.SDK_INT));
 			builder.setPositiveButton(R.string.button_ok,
 				new DialogInterface.OnClickListener()
