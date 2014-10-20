@@ -114,11 +114,12 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 	}
 
 	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data)
+	protected void onActivityResult(int requestCode, int resultCode,
+		Intent data)
 	{
 		if(requestCode == ACTIVITY_PROFILE_MANAGER)
 		{
-			updateScreen();
+			recreateCompat();
 		}
 	}
 
@@ -126,6 +127,18 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 	{
 		return "".equals(s)? getString(
 			R.string.pref_profileName_summary_prefixAddBlank): s;
+	}
+
+	// TODO: after upgrading to API level 11, remove this method (use API 11
+	// recreate method instead)
+	private void recreateCompat()
+	{
+		Intent intent = getIntent();
+		//overridePendingTransition(0, 0);
+		//intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+		finish();
+		//overridePendingTransition(0, 0);
+		startActivity(intent);
 	}
 
 	private void updateScreen()
