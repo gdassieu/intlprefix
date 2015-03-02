@@ -28,6 +28,12 @@
 	<string name="pref_notifyOnNetworkOperatorChange_default">false</string>
 	<string name="pref_toastOnDialedNumberChange_key">pref_notifyOnDialedNumberChange</string>
 	<string name="pref_toastOnDialedNumberChange_default">true</string>
+	<string name="pref_toastDuration_key">pref_toastDuration</string>
+	<string name="pref_toastDuration_default">0</string>
+	<string-array name="pref_toastDuration_entryValues">
+		<item>0</item>
+		<item>1</item>
+	</string-array>
 	<string name="pref_alternateConversionMethod_key">pref_alternateConversionMethod</string>
 	<string name="pref_about_key">pref_about_key</string>
 </resources>

@@ -27,6 +27,12 @@
 	<string name="pref_notifyOnNetworkOperatorChange_summary">Me notifier lorsque l\'opérateur du réseau change</string>
 	<string name="pref_toastOnDialedNumberChange_title">Changement du numéro composé</string>
 	<string name="pref_toastOnDialedNumberChange_summary">Afficher un popup lorsque le numéro composé est modifié</string>
+	<string name="pref_toastDuration_title">Durée d\'affichage du popup</string>
+	<string name="pref_toastDuration_summary">%s</string>
+	<string-array name="pref_toastDuration_entries">
+		<item>Courte</item>
+		<item>Longue</item>
+	</string-array>
 	<string name="cat_misc_title">Divers</string>
 	<string name="pref_alternateConversionMethod_title">Méthode de conversion alternative</string>
 	<string name="pref_alternateConversionMethod_summary">À utiliser dans les portables où la méthode standard ne fonctionne pas</string>

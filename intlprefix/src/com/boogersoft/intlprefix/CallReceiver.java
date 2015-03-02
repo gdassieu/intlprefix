@@ -84,10 +84,11 @@ public class CallReceiver extends BroadcastReceiver
 
 			if(Preferences.getToastOnDialedNumberChange(context))
 			{
+				int toastLength = Preferences.getToastDuration(context);
 				Toast.makeText(context,
 					context.getString(R.string.text_dialedNumberChanged,
 						dialedNumber, correctedNumber),
-					Toast.LENGTH_SHORT).show();
+					toastLength).show();
 			}
 		}
 		else

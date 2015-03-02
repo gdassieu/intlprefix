@@ -8,8 +8,10 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.widget.BaseAdapter;
 
 public class PreferencesActivity extends android.preference.PreferenceActivity
 	implements OnSharedPreferenceChangeListener
@@ -103,6 +105,10 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 			Preferences.setProfileDirty(this, true);
 			updateScreen();
 		}
+		else if(key.equals(getString(R.string.pref_toastDuration_key)))
+		{
+			updateScreen();
+		}
 		else if(key.equals(getString(
 				R.string.pref_notifyOnNetworkCountryChange_key))
 			|| key.equals(getString(
@@ -170,8 +176,16 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 			R.string.pref_intlPrefix_key,
 			R.string.pref_intlPrefix_summary,
 			stringOrBlank(Preferences.getIntlPrefix(this)));
+		updateSummary(
+			R.string.pref_toastDuration_key,
+			R.string.pref_toastDuration_summary,
+			((ListPreference)getPreferenceScreen().findPreference(
+					getString(R.string.pref_toastDuration_key))).getEntry());
 
-		this.onContentChanged();
+		// needed to force refresh profile summary in the main screen after
+		// profile settings are changed in the profile edit screen
+		((BaseAdapter)getPreferenceScreen().getRootAdapter())
+			.notifyDataSetChanged();
 	}
 
 	private void updateTitle(int keyResId, int titleResId, Object... values)

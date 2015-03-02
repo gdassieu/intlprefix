@@ -27,6 +27,12 @@
 	<string name="pref_notifyOnNetworkOperatorChange_summary">Notify me when the network operator changes</string>
 	<string name="pref_toastOnDialedNumberChange_title">Dialed number change</string>
 	<string name="pref_toastOnDialedNumberChange_summary">Display a popup when the dialed number is changed</string>
+	<string name="pref_toastDuration_title">Popup display duration</string>
+	<string name="pref_toastDuration_summary">%s</string>
+	<string-array name="pref_toastDuration_entries">
+		<item>Short</item>
+		<item>Long</item>
+	</string-array>
 	<string name="cat_misc_title">Miscellaneous</string>
 	<string name="pref_alternateConversionMethod_title">Alternate conversion method</string>
 	<string name="pref_alternateConversionMethod_summary">Use this on (buggy) phones where the standard method doesn\'t work</string>

@@ -27,6 +27,12 @@
 	<string name="pref_notifyOnNetworkOperatorChange_summary">Notificarme cuando el operador de la red cambia</string>
 	<string name="pref_toastOnDialedNumberChange_title">Cambio del número marcado</string>
 	<string name="pref_toastOnDialedNumberChange_summary">Mostrar un mensaje emergente cuando el número marcado es modificado</string>
+	<string name="pref_toastDuration_title">Duración del mensaje emergente</string>
+	<string name="pref_toastDuration_summary">%s</string>
+	<string-array name="pref_toastDuration_entries">
+		<item>Corta</item>
+		<item>Larga</item>
+	</string-array>
 	<string name="cat_misc_title">Misceláneos</string>
 	<string name="pref_alternateConversionMethod_title">Método de conversión alternativo</string>
 	<string name="pref_alternateConversionMethod_summary">Usa esto en móviles en los que el método estándar no funciona</string>
