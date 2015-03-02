@@ -200,6 +200,13 @@ public class Preferences
 			R.string.pref_toastOnDialedNumberChange_default);
 	}
 
+	public static int getToastDuration(Context context)
+	{
+		return Integer.parseInt(getStringPreference(context,
+			R.string.pref_toastDuration_key,
+			R.string.pref_toastDuration_default));
+	}
+
 	public static void setAlternateConversionMethod(
 		Context context, boolean value)
 	{

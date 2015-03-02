@@ -27,6 +27,12 @@
 	<string name="pref_notifyOnNetworkOperatorChange_summary">通信事業者が変わる時に通知する</string>
 	<string name="pref_toastOnDialedNumberChange_title">かけた番号の変更</string>
 	<string name="pref_toastOnDialedNumberChange_summary">かけた番号が変更された時にポップアップを見せる</string>
+	<string name="pref_toastDuration_title">ポップアップを見せる期間</string>
+	<string name="pref_toastDuration_summary">%s</string>
+	<string-array name="pref_toastDuration_entries">
+		<item>短い</item>
+		<item>長い</item>
+	</string-array>
 	<string name="cat_misc_title">その他</string>
 	<string name="pref_alternateConversionMethod_title">変更の代替手段</string>
 	<string name="pref_alternateConversionMethod_summary">標準手段がダメな場合、このボックスにチェックを入れて下さい</string>
