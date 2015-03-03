@@ -17,8 +17,10 @@ public class CallReceiver extends BroadcastReceiver
 		String currentCountryCode = Preferences.getCurrentCountryCode(context);
 		boolean addDomesticPrefix = Preferences.getAddDomesticPrefix(context);
 		String domesticPrefix = Preferences.getDomesticPrefix(context);
+		String domesticSuffix = Preferences.getDomesticSuffix(context);
 		boolean addIntlPrefix = Preferences.getAddIntlPrefix(context);
 		String intlPrefix = Preferences.getIntlPrefix(context);
+		String intlSuffix = Preferences.getIntlSuffix(context);
 //		Log.d(getClass().getName(), "currentCountryCode=" + currentCountryCode);
 //		Log.d(getClass().getName(), "addDomesticPrefix=" + addDomesticPrefix);
 //		Log.d(getClass().getName(), "domesticPrefix=" + domesticPrefix);    	
@@ -42,6 +44,7 @@ public class CallReceiver extends BroadcastReceiver
 		}
 		else if(dialedNumber.startsWith(plusSign + currentCountryCode))
 		{
+			// '+' followed by current country code -> domestic call
 			if(addDomesticPrefix)
 			{
 				Log.d(getClass().getName(), "Number starts with " + plusSign
@@ -49,15 +52,26 @@ public class CallReceiver extends BroadcastReceiver
 				correctedNumber = domesticPrefix + dialedNumber.substring(
 					plusSign.length() + currentCountryCode.length());
 			}
+			if(domesticSuffix.length() > 0)
+			{
+				correctedNumber = (correctedNumber == null?
+					dialedNumber: correctedNumber) + domesticSuffix;
+			}
 		}
 		else if(dialedNumber.startsWith(plusSign))
 		{
+			// '+' followed by something else -> international call
 			if(addIntlPrefix)
 			{
 				Log.d(getClass().getName(), "Number starts with " + plusSign
 					+ ", adding international prefix");
 				correctedNumber = intlPrefix + dialedNumber.substring(
 					plusSign.length());
+			}
+			if(intlSuffix.length() > 0)
+			{
+				correctedNumber = (correctedNumber == null?
+					dialedNumber: correctedNumber) + intlSuffix;
 			}
 		}
 

@@ -2,7 +2,7 @@
 <resources>
     <string name="cat_profile_title">プロフィル</string>
 	<string name="pref_profileName_title">プロフィル: %1$s%2$s</string>
-	<string name="pref_profileName_summary">現在の国番号: %1$s\n国内電話ﾌﾟﾚﾌｨｯｸｽを追加: %2$s\n国際電話ﾌﾟﾚﾌｨｯｸｽを追加: %3$s</string>
+	<string name="pref_profileName_summary">現在の国番号: %1$s\n国内電話ﾌﾟﾚﾌｨｯｸｽを追加: %2$s\n国内電話ｻﾌｨｯｸｽを追加: %3$s\n国際電話ﾌﾟﾚﾌｨｯｸｽを追加: %4$s\n国際電話ｻﾌｨｯｸｽを追加: %5$s</string>
 	<string name="pref_profileName_summary_prefixAddBlank">(空欄)</string>
 	<string name="pref_profileName_summary_prefixDontAdd">なし</string>
 	<string name="pref_profileName_default">無題</string>
@@ -14,10 +14,14 @@
 	<string name="pref_addDomesticPrefix_summary">「＋」に続けて現在の国番号の代わりに国内電話用ﾌﾟﾚﾌｨｯｸｽを入れる</string>
 	<string name="pref_domesticPrefix_title">国内電話ﾌﾟﾚﾌｨｯｸｽ</string>
 	<string name="pref_domesticPrefix_summary">国内電話用ﾌﾟﾚﾌｨｯｸｽ: %s</string>
+	<string name="pref_domesticSuffix_title">国内電話ｻﾌｨｯｸｽ</string>
+	<string name="pref_domesticSuffix_summary">国内電話用ｻﾌｨｯｸｽ: %s</string>
 	<string name="pref_addIntlPrefix_title">国際電話ﾌﾟﾚﾌｨｯｸｽを追加</string>
 	<string name="pref_addIntlPrefix_summary">国際電話の場合、「＋」の代わりに国際電話用ﾌﾟﾚﾌｨｯｸｽを入れる</string>
 	<string name="pref_intlPrefix_title">国際電話ﾌﾟﾚﾌｨｯｸｽ</string>
 	<string name="pref_intlPrefix_summary">国際電話用ﾌﾟﾚﾌｨｯｸｽ: %s</string>
+	<string name="pref_intlSuffix_title">国際電話ｻﾌｨｯｸｽ</string>
+	<string name="pref_intlSuffix_summary">国際電話用ｻﾌｨｯｸｽ: %s</string>
 	<string name="cat_load_title">開く / 管理…</string>
 	<string name="cat_save_title">保存…</string>
 	<string name="cat_notifications_title">通知</string>

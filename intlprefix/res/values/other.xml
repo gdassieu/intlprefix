@@ -12,10 +12,14 @@
 	<string name="pref_addDomesticPrefix_default">false</string>
 	<string name="pref_domesticPrefix_key">pref_localPrefix</string>
 	<string name="pref_domesticPrefix_default">0</string>
+	<string name="pref_domesticSuffix_key">pref_domesticSuffix</string>
+	<string name="pref_domesticSuffix_default"></string>
 	<string name="pref_addIntlPrefix_key">pref_addIntlPrefix</string>
 	<string name="pref_addIntlPrefix_default">false</string>
 	<string name="pref_intlPrefix_key">pref_intlPrefix</string>
 	<string name="pref_intlPrefix_default"></string>
+	<string name="pref_intlSuffix_key">pref_intlSuffix</string>
+	<string name="pref_intlSuffix_default"></string>
 	<string name="pref_lastNetworkCountryIso_key">pref_lastNetworkCountryIso</string>
 	<string name="pref_lastNetworkCountryIso_default"></string>
 	<string name="pref_lastNetworkOperatorName_key">pref_lastNetworkOperatorName</string>

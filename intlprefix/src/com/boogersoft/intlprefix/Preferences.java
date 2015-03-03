@@ -123,6 +123,13 @@ public class Preferences
 		putStringPreference(context, R.string.pref_domesticPrefix_key, value);
 	}
 
+	public static String getDomesticSuffix(Context context)
+	{
+		return getStringPreference(context,
+			R.string.pref_domesticSuffix_key,
+			R.string.pref_domesticSuffix_default);
+	}
+
 	public static boolean getAddIntlPrefix(Context context)
 	{
 		return getBooleanPreference(context,
@@ -145,6 +152,13 @@ public class Preferences
 	public static void setIntlPrefix(Context context, String value)
 	{
 		putStringPreference(context, R.string.pref_intlPrefix_key, value);
+	}
+
+	public static String getIntlSuffix(Context context)
+	{
+		return getStringPreference(context,
+			R.string.pref_intlSuffix_key,
+			R.string.pref_intlSuffix_default);
 	}
 
 	public static String getlastNetworkCountryIso(Context context)

@@ -2,7 +2,7 @@
 <resources>
     <string name="cat_profile_title">Profil</string>
 	<string name="pref_profileName_title">Profil: %1$s%2$s</string>
-	<string name="pref_profileName_summary">Code du pays actuel: %1$s\nAjouter le préfixe domestique: %2$s\nAjouter le préfixe international: %3$s</string>
+	<string name="pref_profileName_summary">Code du pays actuel: %1$s\nAjouter le préfixe domestique: %2$s\nAjouter le suffixe domestique: %3$s\nAjouter le préfixe international: %4$s\nAjouter le suffixe international: %5$s</string>
 	<string name="pref_profileName_summary_prefixAddBlank">(vide)</string>
 	<string name="pref_profileName_summary_prefixDontAdd">non</string>
 	<string name="pref_profileName_default">Sans titre</string>
@@ -14,10 +14,14 @@
 	<string name="pref_addDomesticPrefix_summary">Remplacer \'+\' suivi du code du pays actuel par le préfixe domestique</string>
 	<string name="pref_domesticPrefix_title">Préfixe domestique</string>
 	<string name="pref_domesticPrefix_summary">Préfixe pour les appels domestiques: %s</string>
+	<string name="pref_domesticSuffix_title">Suffixe domestique</string>
+	<string name="pref_domesticSuffix_summary">Suffixe pour les appels domestiques: %s</string>
 	<string name="pref_addIntlPrefix_title">Ajouter le préfixe international</string>
 	<string name="pref_addIntlPrefix_summary">Remplacer \'+\' pour les appels internationaux par le préfixe international</string>
 	<string name="pref_intlPrefix_title">Préfixe international</string>
 	<string name="pref_intlPrefix_summary">Préfixe pour les appels internationaux: %s</string>
+	<string name="pref_intlSuffix_title">Suffixe international</string>
+	<string name="pref_intlSuffix_summary">Suffixe pour les appels internationaux: %s</string>
 	<string name="cat_load_title">Ouvrir / Gérer…</string>
 	<string name="cat_save_title">Enregistrer…</string>
 	<string name="cat_notifications_title">Notifications</string>
