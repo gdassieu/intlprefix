@@ -99,8 +99,10 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 		if(key.equals(getString(R.string.pref_currentCountryCode_key))
 			|| key.equals(getString(R.string.pref_addDomesticPrefix_key))
 			|| key.equals(getString(R.string.pref_domesticPrefix_key))
+			|| key.equals(getString(R.string.pref_domesticSuffix_key))
 			|| key.equals(getString(R.string.pref_addIntlPrefix_key))
-			|| key.equals(getString(R.string.pref_intlPrefix_key)))
+			|| key.equals(getString(R.string.pref_intlPrefix_key))
+			|| key.equals(getString(R.string.pref_intlSuffix_key)))
 		{
 			Preferences.setProfileDirty(this, true);
 			updateScreen();
@@ -161,9 +163,11 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 			Preferences.getAddDomesticPrefix(this)?
 				stringOrBlank(Preferences.getDomesticPrefix(this)):
 				getString(R.string.pref_profileName_summary_prefixDontAdd),
+			stringOrBlank(Preferences.getDomesticSuffix(this)),
 			Preferences.getAddIntlPrefix(this)?
 				stringOrBlank(Preferences.getIntlPrefix(this)):
-				getString(R.string.pref_profileName_summary_prefixDontAdd));
+				getString(R.string.pref_profileName_summary_prefixDontAdd),
+			stringOrBlank(Preferences.getIntlSuffix(this)));
 		updateSummary(
 			R.string.pref_currentCountryCode_key,
 			R.string.pref_currentCountryCode_summary,
@@ -173,9 +177,17 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 			R.string.pref_domesticPrefix_summary,
 			stringOrBlank(Preferences.getDomesticPrefix(this)));
 		updateSummary(
+			R.string.pref_domesticSuffix_key,
+			R.string.pref_domesticSuffix_summary,
+			stringOrBlank(Preferences.getDomesticSuffix(this)));
+		updateSummary(
 			R.string.pref_intlPrefix_key,
 			R.string.pref_intlPrefix_summary,
 			stringOrBlank(Preferences.getIntlPrefix(this)));
+		updateSummary(
+			R.string.pref_intlSuffix_key,
+			R.string.pref_intlSuffix_summary,
+			stringOrBlank(Preferences.getIntlSuffix(this)));
 		updateSummary(
 			R.string.pref_toastDuration_key,
 			R.string.pref_toastDuration_summary,

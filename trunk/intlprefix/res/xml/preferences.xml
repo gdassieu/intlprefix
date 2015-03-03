@@ -6,10 +6,12 @@
 			<PreferenceCategory android:title="@string/cat_domesticCall_title">
 				<CheckBoxPreference android:key="@string/pref_addDomesticPrefix_key" android:summary="@string/pref_addDomesticPrefix_summary" android:title="@string/pref_addDomesticPrefix_title" android:defaultValue="@string/pref_addDomesticPrefix_default"></CheckBoxPreference>
 				<EditTextPreference android:key="@string/pref_domesticPrefix_key" android:title="@string/pref_domesticPrefix_title" android:summary="@string/pref_domesticPrefix_summary" android:defaultValue="@string/pref_domesticPrefix_default" android:dependency="@string/pref_addDomesticPrefix_key"></EditTextPreference>
+				<EditTextPreference android:key="@string/pref_domesticSuffix_key" android:title="@string/pref_domesticSuffix_title" android:summary="@string/pref_domesticSuffix_summary" android:defaultValue="@string/pref_domesticSuffix_default"></EditTextPreference>
 			</PreferenceCategory>
 			<PreferenceCategory android:title="@string/cat_intlCall_title">
 				<CheckBoxPreference android:key="@string/pref_addIntlPrefix_key" android:summary="@string/pref_addIntlPrefix_summary" android:title="@string/pref_addIntlPrefix_title" android:defaultValue="@string/pref_addIntlPrefix_default"></CheckBoxPreference>
 				<EditTextPreference android:summary="@string/pref_intlPrefix_summary" android:title="@string/pref_intlPrefix_title" android:key="@string/pref_intlPrefix_key" android:defaultValue="@string/pref_intlPrefix_default" android:dependency="@string/pref_addIntlPrefix_key"></EditTextPreference>
+				<EditTextPreference android:summary="@string/pref_intlSuffix_summary" android:title="@string/pref_intlSuffix_title" android:key="@string/pref_intlSuffix_key" android:defaultValue="@string/pref_intlSuffix_default"></EditTextPreference>
 			</PreferenceCategory>
 		</PreferenceScreen>
 		<Preference android:title="@string/cat_load_title" android:key="@string/cat_load_key"/>
