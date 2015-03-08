@@ -86,7 +86,7 @@ public class CallReceiver extends BroadcastReceiver
 				Log.d(getClass().getName(), "Workaround activated");
 				setResultData(null);
 				Intent callIntent = new Intent(Intent.ACTION_CALL,
-					Uri.parse("tel:" + correctedNumber));
+					Uri.parse("tel:" + Uri.encode(correctedNumber)));
 				callIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				context.startActivity(callIntent);
 			}
