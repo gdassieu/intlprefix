@@ -2,9 +2,8 @@
 <resources>
     <string name="cat_profile_title">Perfil</string>
 	<string name="pref_profileName_title">Perfil: %1$s%2$s</string>
-	<string name="pref_profileName_summary">Código de país actual: %1$s\nAgregar prefijo doméstico: %2$s\nAgregar sufijo doméstico: %3$s\nAgregar prefijo internacional: %4$s\nAgregar sufijo internacional: %5$s</string>
-	<string name="pref_profileName_summary_prefixAddBlank">(vacío)</string>
-	<string name="pref_profileName_summary_prefixDontAdd">no</string>
+	<string name="pref_profileName_summary">Domésticas: %1$s\nInternacionales: %2$s</string>
+	<string name="pref_profileValue_blank">(vacío)</string>
 	<string name="pref_profileName_default">Sin título</string>
     <string name="cat_intlCall_title">Llamadas internacionales</string>
 	<string name="cat_domesticCall_title">Llamadas domésticas</string>

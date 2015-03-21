@@ -9,71 +9,16 @@ import android.widget.Toast;
 
 public class CallReceiver extends BroadcastReceiver
 {
-	public static final String plusSign="+";
-
 	@Override
 	public void onReceive(Context context, Intent intent)
 	{
-		String currentCountryCode = Preferences.getCurrentCountryCode(context);
-		boolean addDomesticPrefix = Preferences.getAddDomesticPrefix(context);
-		String domesticPrefix = Preferences.getDomesticPrefix(context);
-		String domesticSuffix = Preferences.getDomesticSuffix(context);
-		boolean addIntlPrefix = Preferences.getAddIntlPrefix(context);
-		String intlPrefix = Preferences.getIntlPrefix(context);
-		String intlSuffix = Preferences.getIntlSuffix(context);
-//		Log.d(getClass().getName(), "currentCountryCode=" + currentCountryCode);
-//		Log.d(getClass().getName(), "addDomesticPrefix=" + addDomesticPrefix);
-//		Log.d(getClass().getName(), "domesticPrefix=" + domesticPrefix);    	
-//		Log.d(getClass().getName(), "addIntlPrefix=" + addIntlPrefix);    	
-//		Log.d(getClass().getName(), "intlPrefix=" + intlPrefix);    	
-
 		String dialedNumber = getResultData();
 		if(dialedNumber == null)
 			dialedNumber = intent.getStringExtra(Intent.EXTRA_PHONE_NUMBER);
 
 		Log.d(getClass().getName(), "Dialed number: " + dialedNumber);
 
-		String correctedNumber = null;
-
-		if(dialedNumber == null)
-		{
-			// received some crash reports due to null dialedNumber (not sure
-			// whether this is normal operation or a whether a 3rd party app is
-			// tampering with the broadcast) so let's be defensive
-			Log.d(getClass().getName(), "Number is null");
-		}
-		else if(dialedNumber.startsWith(plusSign + currentCountryCode))
-		{
-			// '+' followed by current country code -> domestic call
-			if(addDomesticPrefix)
-			{
-				Log.d(getClass().getName(), "Number starts with " + plusSign
-					+ currentCountryCode + ", adding domestic prefix");
-				correctedNumber = domesticPrefix + dialedNumber.substring(
-					plusSign.length() + currentCountryCode.length());
-			}
-			if(domesticSuffix.length() > 0)
-			{
-				correctedNumber = (correctedNumber == null?
-					dialedNumber: correctedNumber) + domesticSuffix;
-			}
-		}
-		else if(dialedNumber.startsWith(plusSign))
-		{
-			// '+' followed by something else -> international call
-			if(addIntlPrefix)
-			{
-				Log.d(getClass().getName(), "Number starts with " + plusSign
-					+ ", adding international prefix");
-				correctedNumber = intlPrefix + dialedNumber.substring(
-					plusSign.length());
-			}
-			if(intlSuffix.length() > 0)
-			{
-				correctedNumber = (correctedNumber == null?
-					dialedNumber: correctedNumber) + intlSuffix;
-			}
-		}
+		String correctedNumber = NumberConverter.convert(context, dialedNumber);
 
 		if(correctedNumber != null)
 		{

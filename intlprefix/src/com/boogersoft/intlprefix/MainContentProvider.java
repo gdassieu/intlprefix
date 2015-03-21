@@ -14,6 +14,7 @@ import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.support.v4.database.DatabaseUtilsCompat;
 import android.text.TextUtils;
+import android.util.Log;
 
 /**
  * Quick'n dirty content provider for internal use only
@@ -43,15 +44,17 @@ public class MainContentProvider extends ContentProvider
 		public static final String COL_COUNTRY_CODE = "countryCode";
 		public static final String COL_ADD_DOM_PREFIX = "addDomPrefix";
 		public static final String COL_DOM_PREFIX = "domPrefix";
+		public static final String COL_DOM_SUFFIX = "domSuffix";
 		public static final String COL_ADD_INTL_PREFIX = "addIntlPrefix";
 		public static final String COL_INTL_PREFIX = "intlPrefix";
+		public static final String COL_INTL_SUFFIX = "intlSuffix";
 
 		public static final String DEFAULT_SORT_ORDER = COL_NAME + " ASC";
 	}
 
 	private class ProfileManagerOpenHelper extends SQLiteOpenHelper
 	{
-		private static final int DB_VERSION = 1;
+		private static final int DB_VERSION = 2;
 		private static final String DB_NAME = "IntlPrefix";
 
 		ProfileManagerOpenHelper(Context context)
@@ -68,15 +71,30 @@ public class MainContentProvider extends ContentProvider
 				+ Profile.COL_COUNTRY_CODE + " TEXT, "
 				+ Profile.COL_ADD_DOM_PREFIX + " INTEGER, "
 				+ Profile.COL_DOM_PREFIX + " TEXT, "
+				+ Profile.COL_DOM_SUFFIX + " TEXT, "
 				+ Profile.COL_ADD_INTL_PREFIX + " INTEGER, "
-				+ Profile.COL_INTL_PREFIX + " TEXT"
+				+ Profile.COL_INTL_PREFIX + " TEXT, "
+				+ Profile.COL_INTL_SUFFIX + " TEXT"
 				+ ");");
 		}
 
 		@Override
 		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
 		{
-			throw new RuntimeException("DB UPGRADE NOT IMPLEMENTED!");
+			Log.d(getClass().getName(), String.format(
+				"Upgrading DB from v%s to v%s", oldVersion, newVersion));
+			switch(oldVersion)
+			{
+				case 1:
+					db.execSQL("ALTER TABLE " + Profile.NAME + " ADD Column "
+						+ Profile.COL_DOM_SUFFIX + " TEXT");
+					db.execSQL("ALTER TABLE " + Profile.NAME + " ADD Column "
+						+ Profile.COL_INTL_SUFFIX + " TEXT");
+					break;
+				default:
+					throw new IllegalStateException(String.format(
+						"DB upgrade to v%s not implemented!", newVersion));
+			}
 		}
 	}
 
@@ -102,10 +120,14 @@ public class MainContentProvider extends ContentProvider
 			Profile.COL_ADD_DOM_PREFIX);
 		profileProjectionMap.put(Profile.COL_DOM_PREFIX,
 			Profile.COL_DOM_PREFIX);
+		profileProjectionMap.put(Profile.COL_DOM_SUFFIX,
+			Profile.COL_DOM_SUFFIX);
 		profileProjectionMap.put(Profile.COL_ADD_INTL_PREFIX,
 			Profile.COL_ADD_INTL_PREFIX);
 		profileProjectionMap.put(Profile.COL_INTL_PREFIX,
 			Profile.COL_INTL_PREFIX);
+		profileProjectionMap.put(Profile.COL_INTL_SUFFIX,
+			Profile.COL_INTL_SUFFIX);
 	}
 
 	@Override
