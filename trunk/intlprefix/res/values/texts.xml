@@ -2,9 +2,9 @@
 <resources>
     <string name="cat_profile_title">Profile</string>
 	<string name="pref_profileName_title">Profile: %1$s%2$s</string>
-	<string name="pref_profileName_summary">Current country code: %1$s\nAdd domestic prefix: %2$s\nAdd domestic suffix: %3$s\nAdd international prefix: %4$s\nAdd international suffix: %5$s\n</string>
-	<string name="pref_profileName_summary_prefixAddBlank">(blank)</string>
-	<string name="pref_profileName_summary_prefixDontAdd">no</string>
+	<string name="pref_profileName_summary">Domestic: %1$s\nInternational: %2$s</string>
+	<string name="pref_profileName_summary_noChange">(no change)</string>
+	<string name="pref_profileValue_blank">(blank)</string>
 	<string name="pref_profileName_default">Untitled</string>
 	<string name="cat_intlCall_title">International calls</string>
 	<string name="cat_domesticCall_title">Domestic calls</string>

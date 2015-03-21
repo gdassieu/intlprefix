@@ -2,9 +2,8 @@
 <resources>
     <string name="cat_profile_title">プロフィル</string>
 	<string name="pref_profileName_title">プロフィル: %1$s%2$s</string>
-	<string name="pref_profileName_summary">現在の国番号: %1$s\n国内電話ﾌﾟﾚﾌｨｯｸｽを追加: %2$s\n国内電話ｻﾌｨｯｸｽを追加: %3$s\n国際電話ﾌﾟﾚﾌｨｯｸｽを追加: %4$s\n国際電話ｻﾌｨｯｸｽを追加: %5$s</string>
-	<string name="pref_profileName_summary_prefixAddBlank">(空欄)</string>
-	<string name="pref_profileName_summary_prefixDontAdd">なし</string>
+	<string name="pref_profileName_summary">国内電話: %1$s\n国際電話: %2$s</string>
+	<string name="pref_profileValue_blank">(空欄)</string>
 	<string name="pref_profileName_default">無題</string>
 	<string name="cat_intlCall_title">国際電話</string>
 	<string name="cat_domesticCall_title">国内電話</string>

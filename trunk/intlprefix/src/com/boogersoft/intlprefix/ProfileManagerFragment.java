@@ -220,10 +220,14 @@ public class ProfileManagerFragment extends ListFragment
 				Preferences.getAddDomesticPrefix(getActivity()));
 			values.put(MainContentProvider.Profile.COL_DOM_PREFIX,
 				Preferences.getDomesticPrefix(getActivity()));
+			values.put(MainContentProvider.Profile.COL_DOM_SUFFIX,
+				Preferences.getDomesticSuffix(getActivity()));
 			values.put(MainContentProvider.Profile.COL_ADD_INTL_PREFIX,
 				Preferences.getAddIntlPrefix(getActivity()));
 			values.put(MainContentProvider.Profile.COL_INTL_PREFIX,
 				Preferences.getIntlPrefix(getActivity()));
+			values.put(MainContentProvider.Profile.COL_INTL_SUFFIX,
+				Preferences.getIntlSuffix(getActivity()));
 
 			if(exists)
 			{
@@ -258,8 +262,10 @@ public class ProfileManagerFragment extends ListFragment
 				MainContentProvider.Profile.COL_COUNTRY_CODE,
 				MainContentProvider.Profile.COL_ADD_DOM_PREFIX,
 				MainContentProvider.Profile.COL_DOM_PREFIX,
+				MainContentProvider.Profile.COL_DOM_SUFFIX,
 				MainContentProvider.Profile.COL_ADD_INTL_PREFIX,
-				MainContentProvider.Profile.COL_INTL_PREFIX
+				MainContentProvider.Profile.COL_INTL_PREFIX,
+				MainContentProvider.Profile.COL_INTL_SUFFIX
 			},
 			MainContentProvider.Profile.COL_NAME + " = ?",
 			new String[] {profileName}, null);
@@ -274,17 +280,23 @@ public class ProfileManagerFragment extends ListFragment
 				MainContentProvider.Profile.COL_ADD_DOM_PREFIX));
 			String domPrefix = c.getString(c.getColumnIndexOrThrow(
 				MainContentProvider.Profile.COL_DOM_PREFIX));
+			String domSuffix = c.getString(c.getColumnIndexOrThrow(
+				MainContentProvider.Profile.COL_DOM_SUFFIX));
 			int addIntlPrefix = c.getInt(c.getColumnIndexOrThrow(
 				MainContentProvider.Profile.COL_ADD_INTL_PREFIX));
 			String intlPrefix = c.getString(c.getColumnIndexOrThrow(
 				MainContentProvider.Profile.COL_INTL_PREFIX));
+			String intlSuffix = c.getString(c.getColumnIndexOrThrow(
+				MainContentProvider.Profile.COL_INTL_SUFFIX));
 
 			Preferences.setProfileName(getActivity(), profileName);
 			Preferences.setCurrentCountryCode(getActivity(), countryCode);
 			Preferences.setAddDomesticPrefix(getActivity(), addDomPrefix != 0);
 			Preferences.setDomesticPrefix(getActivity(), domPrefix);
+			Preferences.setDomesticSuffix(getActivity(), domSuffix);
 			Preferences.setAddIntlPrefix(getActivity(), addIntlPrefix != 0);
 			Preferences.setIntlPrefix(getActivity(), intlPrefix);
+			Preferences.setIntlSuffix(getActivity(), intlSuffix);
 			Preferences.setProfileDirty(getActivity(), false);
 
 			getActivity().finish();

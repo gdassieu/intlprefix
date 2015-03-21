@@ -134,7 +134,7 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 	private String stringOrBlank(String s)
 	{
 		return "".equals(s)? getString(
-			R.string.pref_profileName_summary_prefixAddBlank): s;
+			R.string.pref_profileValue_blank): s;
 	}
 
 	// TODO: after upgrading to API level 11, remove this method (use API 11
@@ -158,16 +158,7 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 			Preferences.getProfileDirty(this)? "*": "");
 		updateSummary(
 			R.string.pref_profileName_key,
-			R.string.pref_profileName_summary,
-			stringOrBlank(Preferences.getCurrentCountryCode(this)),
-			Preferences.getAddDomesticPrefix(this)?
-				stringOrBlank(Preferences.getDomesticPrefix(this)):
-				getString(R.string.pref_profileName_summary_prefixDontAdd),
-			stringOrBlank(Preferences.getDomesticSuffix(this)),
-			Preferences.getAddIntlPrefix(this)?
-				stringOrBlank(Preferences.getIntlPrefix(this)):
-				getString(R.string.pref_profileName_summary_prefixDontAdd),
-			stringOrBlank(Preferences.getIntlSuffix(this)));
+			NumberConverter.getSummary(this));
 		updateSummary(
 			R.string.pref_currentCountryCode_key,
 			R.string.pref_currentCountryCode_summary,
@@ -207,11 +198,17 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 		pref.setTitle(getString(titleResId, values));
 	}
 
-	private void updateSummary(int keyResId, int summaryResId, Object... values)
+	private void updateSummary(int keyResId, String summary)
 	{
 		String key = getString(keyResId);
 		Preference pref = getPreferenceScreen().findPreference(key);
-		pref.setSummary(getString(summaryResId, values));
+		pref.setSummary(summary);
+	}
+
+	private void updateSummary(int keyResId, int summaryResId, Object... values)
+	{
+		String summary = getString(summaryResId, values);
+		updateSummary(keyResId, summary);
 	}
 
 	private String getVersionName()

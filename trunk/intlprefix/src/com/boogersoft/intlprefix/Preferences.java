@@ -130,6 +130,11 @@ public class Preferences
 			R.string.pref_domesticSuffix_default);
 	}
 
+	public static void setDomesticSuffix(Context context, String value)
+	{
+		putStringPreference(context, R.string.pref_domesticSuffix_key, value);
+	}
+
 	public static boolean getAddIntlPrefix(Context context)
 	{
 		return getBooleanPreference(context,
@@ -159,6 +164,11 @@ public class Preferences
 		return getStringPreference(context,
 			R.string.pref_intlSuffix_key,
 			R.string.pref_intlSuffix_default);
+	}
+
+	public static void setIntlSuffix(Context context, String value)
+	{
+		putStringPreference(context, R.string.pref_intlSuffix_key, value);
 	}
 
 	public static String getlastNetworkCountryIso(Context context)
