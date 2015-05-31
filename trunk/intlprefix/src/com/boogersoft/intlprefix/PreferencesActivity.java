@@ -1,5 +1,7 @@
 package com.boogersoft.intlprefix;
 
+import java.util.List;
+
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -7,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -231,10 +234,20 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 		switch(id)
 		{
 		case DIALOG_ABOUT:
+			List<ResolveInfo> l = getPackageManager().queryBroadcastReceivers(
+				new Intent(Intent.ACTION_NEW_OUTGOING_CALL), 0);
+			String broadcastReceiverList = "";
+			for(ResolveInfo r:l)
+			{
+				broadcastReceiverList +=
+					(broadcastReceiverList.length() > 0? ", ": "") +
+					"\n" + r.activityInfo.name + ":" + r.priority;
+			}
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setMessage(getString(R.string.text_about, getVersionName(),
 				getString(R.string.pref_alternateConversionMethod_title),
-				android.os.Build.PRODUCT, android.os.Build.VERSION.SDK_INT));
+				android.os.Build.PRODUCT, android.os.Build.VERSION.SDK_INT,
+				broadcastReceiverList));
 			builder.setPositiveButton(R.string.button_ok,
 				new DialogInterface.OnClickListener()
 				{

@@ -41,7 +41,7 @@
 	<string name="pref_alternateConversionMethod_title">Alternate conversion method</string>
 	<string name="pref_alternateConversionMethod_summary">Use this on (buggy) phones where the standard method doesn\'t work</string>
 	<string name="pref_about_title">About IntlPrefix…</string>
-	<string name="text_about">IntlPrefix %1$s by Gaston DASSIEU-BLANCHET\n\nAutomatic addition of dialing prefixes to outgoing calls!\n\nIMPORTANT: if prefixing does not work, use the \"%2$s\" option\n\nPlease report bugs to gdassieu@gmail.com\n\nos.Build.PRODUCT=%3$s\nos.Build.VERSION.SDK_INT=%4$d</string>
+	<string name="text_about">IntlPrefix %1$s by Gaston DASSIEU-BLANCHET\n\nAutomatic addition of dialing prefixes to outgoing calls!\n\nIMPORTANT: if prefixing does not work, use the \"%2$s\" option\n\nPlease report bugs to gdassieu@gmail.com\n\nos.Build.PRODUCT=%3$s\nos.Build.VERSION.SDK_INT=%4$d\nBroadcastReceivers=\n{%5$s\n}</string>
 	<string name="button_ok">OK</string>
 	<string name="text_newNetworkCountryAndOperator">New country and operator: %1$s/%2$s</string>
 	<string name="text_newNetworkCountry">New country: %1$s</string>
