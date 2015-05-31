@@ -14,7 +14,7 @@ public class CallReceiver extends BroadcastReceiver
 	{
 		String dialedNumber = getResultData();
 		if(dialedNumber == null)
-			dialedNumber = intent.getStringExtra(Intent.EXTRA_PHONE_NUMBER);
+			return;
 
 		Log.d(getClass().getName(), "Dialed number: " + dialedNumber);
 
