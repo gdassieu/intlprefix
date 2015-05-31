@@ -40,7 +40,7 @@
 	<string name="pref_alternateConversionMethod_title">変更の代替手段</string>
 	<string name="pref_alternateConversionMethod_summary">標準手段がダメな場合、このボックスにチェックを入れて下さい</string>
 	<string name="pref_about_title">IntlPrefixについて…</string>
-	<string name="text_about">Gaston DASSIEU-BLANCHETによるIntlPrefix %1$s\n\n発信電話番号にﾌﾟﾚﾌｨｯｸｽの自動追加！\n\n注意：ﾌﾟﾚﾌｨｯｸｽの追加は機能しない場合は「%2$s」のオプションをご利用下さい\n\nもし何かバグ等有りましたらgdassieu@gmail.comの方にご連絡お願い致します\n\nos.Build.PRODUCT=%3$s\nos.Build.VERSION.SDK_INT=%4$d</string>
+	<string name="text_about">Gaston DASSIEU-BLANCHETによるIntlPrefix %1$s\n\n発信電話番号にﾌﾟﾚﾌｨｯｸｽの自動追加！\n\n注意：ﾌﾟﾚﾌｨｯｸｽの追加は機能しない場合は「%2$s」のオプションをご利用下さい\n\nもし何かバグ等有りましたらgdassieu@gmail.comの方にご連絡お願い致します\n\nos.Build.PRODUCT=%3$s\nos.Build.VERSION.SDK_INT=%4$d\nBroadcastReceivers=\n{%5$s\n}</string>
 	<string name="button_ok">OK</string>
 	<string name="text_newNetworkCountryAndOperator">国と事業者の同時変更: %1$s/%2$s</string>
 	<string name="text_newNetworkCountry">対象国の変更: %1$s</string>
