@@ -43,7 +43,7 @@
 	<string name="pref_callReceiverPriority_title">電話番号変換機能の優先</string>
 	<string name="pref_callReceiverPriority_summary">電話番号変換機能の優先を上げる事が出来ます（現在：%1$d、 利用可能数： %2$d～%3$d)</string>
 	<string name="pref_about_title">IntlPrefixについて…</string>
-	<string name="text_about">Gaston DASSIEU-BLANCHETによるIntlPrefix %1$s\n\n発信電話番号にﾌﾟﾚﾌｨｯｸｽの自動追加！\n\n注意：IntlPrefixが機能しない場合は「%2$s」のオプションをご利用下さい\n\nもし何かバグ等有りましたらgdassieu@gmail.comの方にご連絡お願い致します\n\nos.Build.PRODUCT=%3$s\nos.Build.VERSION.SDK_INT=%4$d</string>
+	<string name="text_about">Gaston DASSIEU-BLANCHETによるIntlPrefix %1$s\n\n発信電話番号の自動変換！\n\n注意：IntlPrefixが機能しない場合は「%2$s」のオプションをご利用下さい\n\nもし何かバグ等有りましたらgdassieu@gmail.comの方にご連絡お願い致します\n\nos.Build.PRODUCT=%3$s\nos.Build.VERSION.SDK_INT=%4$d</string>
 	<string name="button_ok">OK</string>
 	<string name="text_newNetworkCountryAndOperator">国と事業者の同時変更: %1$s/%2$s</string>
 	<string name="text_newNetworkCountry">対象国の変更: %1$s</string>
