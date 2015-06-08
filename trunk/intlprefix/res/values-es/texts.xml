@@ -43,7 +43,7 @@
 	<string name="pref_callReceiverPriority_title">Prioridad del modificador de número marcado</string>
 	<string name="pref_callReceiverPriority_summary">Usa esto para incrementar la prioridad del modificador de número marcado (valor actual: %1$d, valores posibles: %2$d a %3$d)</string>
 	<string name="pref_about_title">Acerca de IntlPrefix…</string>
-	<string name="text_about">IntlPrefix %1$s por Gaston DASSIEU-BLANCHET\n\nAgregado automático de prefijos a las llamadas salientes!\n\nIMPORTANTE: si IntlPrefix no funciona, intenta cambiar las opciones de \"%2$s\"\n\nPor favor reportar bugs a gdassieu@gmail.com\n\nos.Build.PRODUCT=%3$s\nos.Build.VERSION.SDK_INT=%4$d</string>
+	<string name="text_about">IntlPrefix %1$s por Gaston DASSIEU-BLANCHET\n\nModificación automática de las llamadas salientes!\n\nIMPORTANTE: si IntlPrefix no funciona, intenta cambiar las opciones de \"%2$s\"\n\nPor favor reportar bugs a gdassieu@gmail.com\n\nos.Build.PRODUCT=%3$s\nos.Build.VERSION.SDK_INT=%4$d</string>
 	<string name="button_ok">Aceptar</string>
 	<string name="text_newNetworkCountryAndOperator">Nuevo país y operador: %1$s/%2$s</string>
 	<string name="text_newNetworkCountry">Nuevo país: %1$s</string>
