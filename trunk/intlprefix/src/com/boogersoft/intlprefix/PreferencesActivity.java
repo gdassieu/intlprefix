@@ -1,15 +1,13 @@
 package com.boogersoft.intlprefix;
 
-import java.util.List;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -93,7 +91,7 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 		// android does not automatically start services when the app is
 		// installed, so we must start it from the PreferencesActivity and
 		// from the BootCompletedReceiver
-		PhoneStateListenerService.startOrStop(this);
+		PhoneStateListenerService.restart(this);
 	}
 
 	@Override
@@ -110,17 +108,14 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 			Preferences.setProfileDirty(this, true);
 			updateScreen();
 		}
+		else if(key.equals(getString(R.string.pref_callReceiverPriority_key)))
+		{
+			PhoneStateListenerService.restart(this);
+			updateScreen();
+		}
 		else if(key.equals(getString(R.string.pref_toastDuration_key)))
 		{
 			updateScreen();
-		}
-		else if(key.equals(getString(
-				R.string.pref_notifyOnNetworkCountryChange_key))
-			|| key.equals(getString(
-				R.string.pref_notifyOnNetworkOperatorChange_key)))
-		{
-			// start the service if needed
-			PhoneStateListenerService.startOrStop(this);
 		}
 	}
 
@@ -187,6 +182,12 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 			R.string.pref_toastDuration_summary,
 			((ListPreference)getPreferenceScreen().findPreference(
 					getString(R.string.pref_toastDuration_key))).getEntry());
+		updateSummary(
+			R.string.pref_callReceiverPriority_key,
+			R.string.pref_callReceiverPriority_summary,
+			Preferences.getCallReceiverPriority(this),
+			IntentFilter.SYSTEM_LOW_PRIORITY,
+			IntentFilter.SYSTEM_HIGH_PRIORITY);
 
 		// needed to force refresh profile summary in the main screen after
 		// profile settings are changed in the profile edit screen
@@ -234,20 +235,22 @@ public class PreferencesActivity extends android.preference.PreferenceActivity
 		switch(id)
 		{
 		case DIALOG_ABOUT:
-			List<ResolveInfo> l = getPackageManager().queryBroadcastReceivers(
-				new Intent(Intent.ACTION_NEW_OUTGOING_CALL), 0);
-			String broadcastReceiverList = "";
-			for(ResolveInfo r:l)
-			{
-				broadcastReceiverList +=
-					(broadcastReceiverList.length() > 0? ", ": "") +
-					"\n" + r.activityInfo.name + ":" + r.priority;
-			}
+//			// this is useless: it only detects receivers registered via
+//			// AndroidManifest.xml. It will not find anything that was
+//			// dynamically registered
+//			List<ResolveInfo> l = getPackageManager().queryBroadcastReceivers(
+//				new Intent(Intent.ACTION_NEW_OUTGOING_CALL), 0);
+//			String broadcastReceiverList = "";
+//			for(ResolveInfo r:l)
+//			{
+//				broadcastReceiverList +=
+//					(broadcastReceiverList.length() > 0? ", ": "") +
+//					"\n" + r.activityInfo.name + ":" + r.priority;
+//			}
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setMessage(getString(R.string.text_about, getVersionName(),
-				getString(R.string.pref_alternateConversionMethod_title),
-				android.os.Build.PRODUCT, android.os.Build.VERSION.SDK_INT,
-				broadcastReceiverList));
+				getString(R.string.cat_troubleshooting_title),
+				android.os.Build.PRODUCT, android.os.Build.VERSION.SDK_INT));
 			builder.setPositiveButton(R.string.button_ok,
 				new DialogInterface.OnClickListener()
 				{

@@ -3,34 +3,36 @@ package com.boogersoft.intlprefix;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.Uri;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.telephony.PhoneStateListener;
 import android.telephony.ServiceState;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.widget.Toast;
+
+/* This service serves two purposes:
+ * 1. catch new outgoing call broadcast and modify the outgoing call number.
+ * 2. listen for phone service state change (ex: new country, new operator) and
+ *    send notification so that user adjusts IntlPrefix settings as needed.
+ * */
 
 public class PhoneStateListenerService extends Service
 {
-	public static void startOrStop(Context context)
+	public static void restart(Context context)
 	{
 		Intent intent = new Intent(context, PhoneStateListenerService.class);
-		// start the service only if needed
-		if(Preferences.getNotifyOnNetworkCountryChange(context)
-			|| Preferences.getNotifyOnNetworkOperatorChange(context))
-		{
-			context.startService(intent);
-		}
-		else
-		{
-			context.stopService(intent);
-		}
+		context.stopService(intent);
+		context.startService(intent);
 	}
 
-	private PhoneStateListener listener;
-	private TelephonyManager telephonyManager;
+	private ServiceStateChangeListener listener;
+	private OutgoingCallReceiver receiver;
 
 	@Override
 	public void onCreate()
@@ -38,22 +40,26 @@ public class PhoneStateListenerService extends Service
 		Log.d(getClass().getName(), "onCreate");
 		//sendDebugNotification("AutoConfig created");
 
-		telephonyManager = (TelephonyManager)getSystemService(
-			Context.TELEPHONY_SERVICE);
-
-		// Setup listener
-		listener = new PhoneStateListener()
-		{
-			@Override
-			public void onServiceStateChanged(ServiceState serviceState)
-			{
-				checkServiceState();
-			}
-		};
-		((TelephonyManager)this.getSystemService(TELEPHONY_SERVICE)).listen(
-			listener, PhoneStateListener.LISTEN_SERVICE_STATE);
+		// register receiver and listener
+		receiver = new OutgoingCallReceiver(this);
+		receiver.register();
+		listener = new ServiceStateChangeListener(this);
+		listener.register();
 
 		super.onCreate();
+	}
+
+	@Override
+	public void onDestroy()
+	{
+		Log.d(getClass().getName(), "onDestroy");
+		//sendDebugNotification("AutoConfig ended");
+
+		// unregister listener and receiver
+		if(listener != null) listener.unregister();
+		if(receiver != null) receiver.unregister();
+
+		super.onDestroy();
 	}
 
 	@Override
@@ -76,117 +82,226 @@ public class PhoneStateListenerService extends Service
 	}
 
 	@Override
-	public void onDestroy()
-	{
-		Log.d(getClass().getName(), "onDestroy");
-		//sendDebugNotification("AutoConfig ended");
-
-		// cleanup listener
-		((TelephonyManager)this.getSystemService(TELEPHONY_SERVICE)).listen(
-			listener, PhoneStateListener.LISTEN_NONE);
-
-		super.onDestroy();
-	}
-
-	@Override
 	public IBinder onBind(Intent intent)
 	{
 		return null;
 	}
 
-	private void checkServiceState()
+	/* new outgoing call broadcast receiver */
+
+	private class OutgoingCallReceiver extends BroadcastReceiver
 	{
-		Log.d(getClass().getName(), "checkServiceState");
+		Context context;
 
-		String lastNetworkCountryIso =
-			Preferences.getlastNetworkCountryIso(this);
-		String lastNetworkOperatorName =
-			Preferences.getlastNetworkOperatorName(this);
-
-		String newNetworkCountryIso =
-			telephonyManager.getNetworkCountryIso();
-		String newNetworkOperatorName =
-			telephonyManager.getNetworkOperatorName();
-
-		// a bit of defensive programming
-		if(newNetworkCountryIso == null) newNetworkCountryIso = "";
-		if(newNetworkOperatorName == null) newNetworkOperatorName = "";
-
-		//sendDebugNotification("SvcStCghd: "
-		//	+ newNetworkCountryIso + "/" + newNetworkOperatorName);
-
-		boolean networkCountryChanged = false;
-		boolean networkOperatorChanged = false;
-
-		Log.d(getClass().getName(), "lastNetworkCountryIso=" + lastNetworkCountryIso);
-		Log.d(getClass().getName(), "newNetworkCountryIso=" + newNetworkCountryIso);
-		Log.d(getClass().getName(), "lastNetworkOperatorName=" + lastNetworkOperatorName);
-		Log.d(getClass().getName(), "newNetworkOperatorName=" + newNetworkOperatorName);
-
-
-		if(newNetworkCountryIso.length() > 0
-			&& !newNetworkCountryIso.equals(lastNetworkCountryIso))
+		public OutgoingCallReceiver(Context context)
 		{
-			networkCountryChanged = true;
-			Preferences.setlastNetworkCountryIso(
-				this, newNetworkCountryIso);
+			super();
+			this.context = context;
 		}
 
-		if(newNetworkOperatorName.length() > 0
-			&& !newNetworkOperatorName.equals(lastNetworkOperatorName))
+		public void register()
 		{
-			networkOperatorChanged = true;
-			Preferences.setlastNetworkOperatorName(
-				this, newNetworkOperatorName);
+			int priority = Preferences.getCallReceiverPriority(context);
+			Log.d(getClass().getName(), "Registering, priority=" + priority);
+			IntentFilter filter = new IntentFilter();
+			filter.addAction("android.intent.action.NEW_OUTGOING_CALL");
+			filter.setPriority(priority);
+			registerReceiver(this, filter);
 		}
 
-		if(networkCountryChanged
-			&& networkOperatorChanged
-			&& Preferences.getNotifyOnNetworkCountryChange(this)
-			&& Preferences.getNotifyOnNetworkOperatorChange(this))
+		public void unregister()
 		{
-			sendNotification(1, getString(
-				R.string.text_newNetworkCountryAndOperator,
-				newNetworkCountryIso, newNetworkOperatorName));
+			Log.d(getClass().getName(), "Unregistering");
+			unregisterReceiver(this);
 		}
-		else if(networkCountryChanged
-			&& Preferences.getNotifyOnNetworkCountryChange(this))
+
+		@Override
+		public void onReceive(Context context, Intent intent)
 		{
-			sendNotification(2, getString(
-				R.string.text_newNetworkCountry, newNetworkCountryIso));
-		}
-		else if(networkOperatorChanged
-			&& Preferences.getNotifyOnNetworkOperatorChange(this))
-		{
-			sendNotification(3, getString(
-				R.string.text_newNetworkOperator, newNetworkOperatorName));
+			String dialedNumber = getResultData();
+			if(dialedNumber == null)
+				return;
+
+			Log.d(getClass().getName(), "Dialed number: " + dialedNumber);
+
+			String correctedNumber = NumberConverter.convert(context,
+				dialedNumber);
+
+			if(correctedNumber != null)
+			{
+				Log.d(getClass().getName(), "Corrected number: "
+					+ correctedNumber);
+
+				if(Preferences.getAlternateConversionMethod(context))
+				{
+					// Alternate method for buggy phones that do not respect
+					// the API: cancel current call and make a new one on
+					Log.d(getClass().getName(), "Workaround activated");
+					setResultData(null);
+					Intent callIntent = new Intent(Intent.ACTION_CALL,
+						Uri.parse("tel:" + Uri.encode(correctedNumber)));
+					callIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+					context.startActivity(callIntent);
+				}
+				else
+				{
+					// Standard method: just setResultData to the new number
+					setResultData(correctedNumber);
+				}
+
+				if(Preferences.getToastOnDialedNumberChange(context))
+				{
+					int toastLength = Preferences.getToastDuration(context);
+					Toast.makeText(context,
+						context.getString(R.string.text_dialedNumberChanged,
+							dialedNumber, correctedNumber),
+						toastLength).show();
+				}
+			}
+			else
+			{
+				Log.d(getClass().getName(), "No conversion");
+			}
 		}
 	}
 
-//	int lastDebugNotificationAutoId = 1000;
-//	private void sendDebugNotification(String title)
-//	{
-//		sendNotification(lastDebugNotificationAutoId++,
-//			String.format("%1$tT %2$s", new Date(), title));
-//	}
+	/* phone service state change listener */
 
-	private void sendNotification(int id, String title)
+	private class ServiceStateChangeListener extends PhoneStateListener
 	{
-		int icon =
-			android.os.Build.VERSION.SDK_INT >= 11?
-				R.drawable.icon_notification_11:
-				R.drawable.icon_notification_9;
-		NotificationCompat.Builder builder =
-			new NotificationCompat.Builder(this)
-				.setSmallIcon(icon)
-				.setContentTitle(title)
-				.setContentText(getString(R.string.text_tapToAdjustSettings))
-				.setAutoCancel(true);
-		Intent resultIntent = new Intent(this, PreferencesActivity.class);
-		builder.setContentIntent(PendingIntent.getActivity(
-				this, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT));
-		NotificationManager notificationManager = (NotificationManager)
-			this.getSystemService(Context.NOTIFICATION_SERVICE);
-		notificationManager.notify(id, builder.build());
+		private TelephonyManager telephonyManager;
+		private Context context;
+
+		public ServiceStateChangeListener(Context context)
+		{
+			super();
+			this.context = context;
+			telephonyManager = (TelephonyManager)getSystemService(
+				Context.TELEPHONY_SERVICE);
+		}
+
+		public void register()
+		{
+			Log.d(getClass().getName(), "Registering");
+			telephonyManager.listen(
+				this, PhoneStateListener.LISTEN_SERVICE_STATE);
+		}
+
+		public void unregister()
+		{
+			Log.d(getClass().getName(), "Unregistering");
+			telephonyManager.listen(
+				this, PhoneStateListener.LISTEN_NONE);
+		}
+
+		@Override
+		public void onServiceStateChanged(ServiceState serviceState)
+		{
+			if(Preferences.getNotifyOnNetworkCountryChange(context)
+					|| Preferences.getNotifyOnNetworkOperatorChange(context))
+			{
+				checkServiceState();
+			}
+		}
+
+		private void checkServiceState()
+		{
+			Log.d(getClass().getName(), "checkServiceState");
+
+			String lastNetworkCountryIso =
+				Preferences.getlastNetworkCountryIso(context);
+			String lastNetworkOperatorName =
+				Preferences.getlastNetworkOperatorName(context);
+
+			String newNetworkCountryIso =
+				telephonyManager.getNetworkCountryIso();
+			String newNetworkOperatorName =
+				telephonyManager.getNetworkOperatorName();
+
+			// a bit of defensive programming
+			if(newNetworkCountryIso == null) newNetworkCountryIso = "";
+			if(newNetworkOperatorName == null) newNetworkOperatorName = "";
+
+			//sendDebugNotification("SvcStCghd: "
+			//	+ newNetworkCountryIso + "/" + newNetworkOperatorName);
+
+			boolean networkCountryChanged = false;
+			boolean networkOperatorChanged = false;
+
+			Log.d(getClass().getName(), "lastNetworkCountryIso="
+					+ lastNetworkCountryIso);
+			Log.d(getClass().getName(), "newNetworkCountryIso="
+					+ newNetworkCountryIso);
+			Log.d(getClass().getName(), "lastNetworkOperatorName="
+					+ lastNetworkOperatorName);
+			Log.d(getClass().getName(), "newNetworkOperatorName="
+					+ newNetworkOperatorName);
+
+			if(newNetworkCountryIso.length() > 0
+				&& !newNetworkCountryIso.equals(lastNetworkCountryIso))
+			{
+				networkCountryChanged = true;
+				Preferences.setlastNetworkCountryIso(
+					context, newNetworkCountryIso);
+			}
+
+			if(newNetworkOperatorName.length() > 0
+				&& !newNetworkOperatorName.equals(lastNetworkOperatorName))
+			{
+				networkOperatorChanged = true;
+				Preferences.setlastNetworkOperatorName(
+					context, newNetworkOperatorName);
+			}
+
+			if(networkCountryChanged
+				&& networkOperatorChanged
+				&& Preferences.getNotifyOnNetworkCountryChange(context)
+				&& Preferences.getNotifyOnNetworkOperatorChange(context))
+			{
+				sendNotification(1, getString(
+					R.string.text_newNetworkCountryAndOperator,
+					newNetworkCountryIso, newNetworkOperatorName));
+			}
+			else if(networkCountryChanged
+				&& Preferences.getNotifyOnNetworkCountryChange(context))
+			{
+				sendNotification(2, getString(
+					R.string.text_newNetworkCountry, newNetworkCountryIso));
+			}
+			else if(networkOperatorChanged
+				&& Preferences.getNotifyOnNetworkOperatorChange(context))
+			{
+				sendNotification(3, getString(
+					R.string.text_newNetworkOperator, newNetworkOperatorName));
+			}
+		}
+
+//		int lastDebugNotificationAutoId = 1000;
+//		private void sendDebugNotification(String title)
+//		{
+//			sendNotification(lastDebugNotificationAutoId++,
+//				String.format("%1$tT %2$s", new Date(), title));
+//		}
+
+		private void sendNotification(int id, String title)
+		{
+			int icon =
+				android.os.Build.VERSION.SDK_INT >= 11?
+					R.drawable.icon_notification_11:
+					R.drawable.icon_notification_9;
+			NotificationCompat.Builder builder =
+				new NotificationCompat.Builder(context)
+					.setSmallIcon(icon)
+					.setContentTitle(title)
+					.setContentText(getString(R.string.text_tapToAdjustSettings))
+					.setAutoCancel(true);
+			Intent resultIntent = new Intent(
+				context, PreferencesActivity.class);
+			builder.setContentIntent(PendingIntent.getActivity(
+				context, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT));
+			NotificationManager notificationManager = (NotificationManager)
+				context.getSystemService(Context.NOTIFICATION_SERVICE);
+			notificationManager.notify(id, builder.build());
+		}
 	}
 }

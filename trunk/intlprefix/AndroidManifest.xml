@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
       package="com.boogersoft.intlprefix"
-      android:versionName="1.3.2.2" android:versionCode="1322">
+      android:versionName="1.3.2.4" android:versionCode="1324">
 <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="15"/>
 <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"></uses-permission>
 <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
 <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 <supports-screens android:largeScreens="true"/>
-    <application android:label="@string/appName" android:icon="@drawable/icon_intlprefix" android:allowBackup="true">
-        
-
-    <receiver android:name="CallReceiver"><intent-filter>
-<action android:name="android.intent.action.NEW_OUTGOING_CALL"></action>
-
-</intent-filter>
-</receiver><activity android:label="@string/appName" android:name="PreferencesActivity">
+    <application android:label="@string/appName" android:icon="@drawable/icon_intlprefix" android:allowBackup="true"><activity android:label="@string/appName" android:name="PreferencesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
