@@ -39,5 +39,7 @@
 		<item>1</item>
 	</string-array>
 	<string name="pref_alternateConversionMethod_key">pref_alternateConversionMethod</string>
+	<string name="pref_callReceiverPriority_key">pref_callReceiverPriority</string>
+	<string name="pref_callReceiverPriority_default">0</string>
 	<string name="pref_about_key">pref_about_key</string>
 </resources>

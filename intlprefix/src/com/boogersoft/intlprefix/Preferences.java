@@ -273,4 +273,11 @@ public class Preferences
 		Preferences.setAlternateConversionMethod(
 			context, Preferences.getAlternateConversionMethod(context));
 	}
+
+	public static int getCallReceiverPriority(Context context)
+	{
+		return Integer.parseInt(getStringPreference(context,
+			R.string.pref_callReceiverPriority_key,
+			R.string.pref_callReceiverPriority_default));
+	}
 }

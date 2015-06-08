@@ -23,8 +23,11 @@
 		<CheckBoxPreference android:defaultValue="@string/pref_toastOnDialedNumberChange_default" android:key="@string/pref_toastOnDialedNumberChange_key" android:title="@string/pref_toastOnDialedNumberChange_title" android:summary="@string/pref_toastOnDialedNumberChange_summary" />
 		<ListPreference android:key="@string/pref_toastDuration_key" android:summary="@string/pref_toastDuration_summary" android:title="@string/pref_toastDuration_title" android:defaultValue="@string/pref_toastDuration_default" android:dependency="@string/pref_toastOnDialedNumberChange_key" android:entries="@array/pref_toastDuration_entries" android:entryValues="@array/pref_toastDuration_entryValues"/>
 	</PreferenceCategory>
-	<PreferenceCategory android:title="@string/cat_misc_title">
+	<PreferenceCategory android:title="@string/cat_troubleshooting_title">
 		<CheckBoxPreference android:key="@string/pref_alternateConversionMethod_key" android:title="@string/pref_alternateConversionMethod_title" android:summary="@string/pref_alternateConversionMethod_summary" />
+		<EditTextPreference android:summary="@string/pref_callReceiverPriority_summary" android:title="@string/pref_callReceiverPriority_title" android:key="@string/pref_callReceiverPriority_key" android:defaultValue="@string/pref_callReceiverPriority_default" android:inputType="number"></EditTextPreference>
+	</PreferenceCategory>
+	<PreferenceCategory android:title="@string/cat_misc_title">
 		<Preference android:title="@string/pref_about_title" android:key="@string/pref_about_key"/>
 	</PreferenceCategory>
 </PreferenceScreen>
