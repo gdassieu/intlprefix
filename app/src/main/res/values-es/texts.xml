@@ -3,6 +3,7 @@
     <string name="cat_profile_title">Perfil</string>
 	<string name="pref_profileName_title">Perfil: %1$s%2$s</string>
 	<string name="pref_profileName_summary">Domésticas: %1$s\nInternacionales: %2$s</string>
+	<string name="pref_profileName_summary_noChange">(sin cambio)</string>
 	<string name="pref_profileValue_blank">(vacío)</string>
 	<string name="pref_profileName_default">Sin título</string>
     <string name="cat_intlCall_title">Llamadas internacionales</string>

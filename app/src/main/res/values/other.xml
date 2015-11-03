@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="appName">IntlPrefix</string>
-	<string name="pref_firstrun_key">pref_firstrun</string>
-	<string name="pref_firstrun_default">false</string>
-	<string name="pref_profileName_key">pref_profileName</string>
-	<string name="pref_profileDirty_key">pref_profileDirty</string>
-	<string name="pref_profileDirty_default">true</string>
-	<string name="pref_currentCountryCode_key">pref_currentCountryCode</string>
-	<string name="pref_currentCountryCode_default">1</string>
-	<string name="pref_addDomesticPrefix_key">pref_convertToLocal</string>
-	<string name="pref_addDomesticPrefix_default">false</string>
-	<string name="pref_domesticPrefix_key">pref_localPrefix</string>
-	<string name="pref_domesticPrefix_default">0</string>
-	<string name="pref_domesticSuffix_key">pref_domesticSuffix</string>
-	<string name="pref_domesticSuffix_default"></string>
-	<string name="pref_addIntlPrefix_key">pref_addIntlPrefix</string>
-	<string name="pref_addIntlPrefix_default">false</string>
-	<string name="pref_intlPrefix_key">pref_intlPrefix</string>
-	<string name="pref_intlPrefix_default"></string>
-	<string name="pref_intlSuffix_key">pref_intlSuffix</string>
-	<string name="pref_intlSuffix_default"></string>
-	<string name="pref_lastNetworkCountryIso_key">pref_lastNetworkCountryIso</string>
-	<string name="pref_lastNetworkCountryIso_default"></string>
-	<string name="pref_lastNetworkOperatorName_key">pref_lastNetworkOperatorName</string>
-	<string name="pref_lastNetworkOperatorName_default"></string>
-	<string name="cat_load_key">cat_load</string>
-	<string name="cat_save_key">cat_save</string>
-	<string name="pref_notifyOnNetworkCountryChange_key">pref_notifyOnNetworkCountryChange</string>
-	<string name="pref_notifyOnNetworkCountryChange_default">true</string>
-	<string name="pref_notifyOnNetworkOperatorChange_key">pref_notifyOnNetworkOperatorChange</string>
-	<string name="pref_notifyOnNetworkOperatorChange_default">false</string>
-	<string name="pref_toastOnDialedNumberChange_key">pref_notifyOnDialedNumberChange</string>
-	<string name="pref_toastOnDialedNumberChange_default">true</string>
-	<string name="pref_toastDuration_key">pref_toastDuration</string>
-	<string name="pref_toastDuration_default">0</string>
-	<string-array name="pref_toastDuration_entryValues">
+	<string translatable="false" name="appName">IntlPrefix</string>
+	<string translatable="false" name="pref_firstrun_key">pref_firstrun</string>
+	<string translatable="false" name="pref_firstrun_default">false</string>
+	<string translatable="false" name="pref_profileName_key">pref_profileName</string>
+	<string translatable="false" name="pref_profileDirty_key">pref_profileDirty</string>
+	<string translatable="false" name="pref_profileDirty_default">true</string>
+	<string translatable="false" name="pref_currentCountryCode_key">pref_currentCountryCode</string>
+	<string translatable="false" name="pref_currentCountryCode_default">1</string>
+	<string translatable="false" name="pref_addDomesticPrefix_key">pref_convertToLocal</string>
+	<string translatable="false" name="pref_addDomesticPrefix_default">false</string>
+	<string translatable="false" name="pref_domesticPrefix_key">pref_localPrefix</string>
+	<string translatable="false" name="pref_domesticPrefix_default">0</string>
+	<string translatable="false" name="pref_domesticSuffix_key">pref_domesticSuffix</string>
+	<string translatable="false" name="pref_domesticSuffix_default"></string>
+	<string translatable="false" name="pref_addIntlPrefix_key">pref_addIntlPrefix</string>
+	<string translatable="false" name="pref_addIntlPrefix_default">false</string>
+	<string translatable="false" name="pref_intlPrefix_key">pref_intlPrefix</string>
+	<string translatable="false" name="pref_intlPrefix_default"></string>
+	<string translatable="false" name="pref_intlSuffix_key">pref_intlSuffix</string>
+	<string translatable="false" name="pref_intlSuffix_default"></string>
+	<string translatable="false" name="pref_lastNetworkCountryIso_key">pref_lastNetworkCountryIso</string>
+	<string translatable="false" name="pref_lastNetworkCountryIso_default"></string>
+	<string translatable="false" name="pref_lastNetworkOperatorName_key">pref_lastNetworkOperatorName</string>
+	<string translatable="false" name="pref_lastNetworkOperatorName_default"></string>
+	<string translatable="false" name="cat_load_key">cat_load</string>
+	<string translatable="false" name="cat_save_key">cat_save</string>
+	<string translatable="false" name="pref_notifyOnNetworkCountryChange_key">pref_notifyOnNetworkCountryChange</string>
+	<string translatable="false" name="pref_notifyOnNetworkCountryChange_default">true</string>
+	<string translatable="false" name="pref_notifyOnNetworkOperatorChange_key">pref_notifyOnNetworkOperatorChange</string>
+	<string translatable="false" name="pref_notifyOnNetworkOperatorChange_default">false</string>
+	<string translatable="false" name="pref_toastOnDialedNumberChange_key">pref_notifyOnDialedNumberChange</string>
+	<string translatable="false" name="pref_toastOnDialedNumberChange_default">true</string>
+	<string translatable="false" name="pref_toastDuration_key">pref_toastDuration</string>
+	<string translatable="false" name="pref_toastDuration_default">0</string>
+	<string-array translatable="false" name="pref_toastDuration_entryValues">
 		<item>0</item>
 		<item>1</item>
 	</string-array>
-	<string name="pref_alternateConversionMethod_key">pref_alternateConversionMethod</string>
-	<string name="pref_callReceiverPriority_key">pref_callReceiverPriority</string>
-	<string name="pref_callReceiverPriority_default">0</string>
-	<string name="pref_about_key">pref_about_key</string>
+	<string translatable="false" name="pref_alternateConversionMethod_key">pref_alternateConversionMethod</string>
+	<string translatable="false" name="pref_callReceiverPriority_key">pref_callReceiverPriority</string>
+	<string translatable="false" name="pref_callReceiverPriority_default">0</string>
+	<string translatable="false" name="pref_about_key">pref_about_key</string>
 </resources>
