@@ -12,7 +12,7 @@ public class BootCompletedReceiver extends BroadcastReceiver
 	{
 		if(Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction()))
 		{
-			Log.d(BootCompletedReceiver.class.getName(), "starting service (intent=" + intent.getAction() + ")");
+			Log.d(BootCompletedReceiver.class.getName(), "starting service");
 			// android does not automatically start services when the app is
 			// installed, so we must start it from the PreferencesActivity and
 			// from the BootCompletedReceiver 
